@@ -1,6 +1,24 @@
 {
   "headers": [
     {
+      "source": "/faq",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
+      "source": "/terms",
+      "headers": [
+        {
+          "key": "X-Robots-Tag",
+          "value": "noindex, nofollow"
+        }
+      ]
+    },
+    {
       "source": "/img/noindex/projects/(.*)",
       "headers": [
         {

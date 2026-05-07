@@ -229,12 +229,12 @@ export function PrivacyDialog({ onClose }: { onClose: () => void }) {
 
             <section className="rounded-2xl border border-border bg-background/70 p-6">
               <h2 className="mb-3 text-xl font-bold text-foreground sm:text-2xl">
-                8. Kontaktujte nás
+                8. Kontaktujte mě
               </h2>
               <div className="space-y-3 leading-relaxed text-brand-text-soft">
                 <p>
                   Pokud máte jakékoli dotazy nebo návrhy týkající se těchto
-                  zásad ochrany osobních údajů, neváhejte nás kontaktovat:
+                  zásad ochrany osobních údajů, neváhejte mě kontaktovat:
                 </p>
                 <div className="rounded-xl border border-brand-secondary/30 bg-linear-to-br from-brand-secondary/10 to-brand-primary/10 p-5">
                   <p className="font-normal text-foreground">
