@@ -270,7 +270,7 @@ export function ContactSection() {
                     },
                   })}
                   aria-invalid={Boolean(errors.preferredService)}
-                  className="w-full rounded-lg border border-border bg-card px-4 py-3 text-foreground focus:border-brand-secondary focus:outline-none transition-colors"
+                  className="w-full rounded-lg border border-border bg-card px-4 py-3 cursor-pointer text-foreground focus:border-brand-secondary focus:outline-none transition-colors"
                 >
                   <option
                     value=""

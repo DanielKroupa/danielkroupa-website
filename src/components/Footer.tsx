@@ -33,7 +33,7 @@ export function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection("sluzby")}
-                  className="text-muted-foreground transition-colors hover:text-brand-secondary"
+                  className="text-muted-foreground cursor-pointer transition-colors hover:text-brand-secondary"
                 >
                   Služby
                 </button>
@@ -41,7 +41,7 @@ export function Footer() {
               <li>
                 <button
                   onClick={() => scrollToSection("portfolio")}
-                  className="text-muted-foreground transition-colors hover:text-brand-secondary"
+                  className="text-muted-foreground cursor-pointer transition-colors hover:text-brand-secondary"
                 >
                   Portfolio
                 </button>
@@ -49,7 +49,7 @@ export function Footer() {
               <li>
                 <Link
                   to="/faq"
-                  className="text-muted-foreground transition-colors hover:text-brand-secondary"
+                  className="text-muted-foreground cursor-pointer transition-colors hover:text-brand-secondary"
                 >
                   FAQ
                 </Link>
@@ -66,7 +66,7 @@ export function Footer() {
                 <button
                   type="button"
                   onClick={openPrivacy}
-                  className="text-muted-foreground transition-colors hover:text-brand-secondary"
+                  className="text-muted-foreground cursor-pointer transition-colors hover:text-brand-secondary"
                 >
                   Ochrana osobních údajů
                 </button>
