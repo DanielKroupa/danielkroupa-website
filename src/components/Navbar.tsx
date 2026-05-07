@@ -144,7 +144,11 @@ export function Navbar({
     <button
       type="button"
       onClick={toggleTheme}
-      aria-label={theme === "dark" ? "Přepnout na světlý motiv" : "Přepnout na tmavý motiv"}
+      aria-label={
+        theme === "dark"
+          ? "Přepnout na světlý motiv"
+          : "Přepnout na tmavý motiv"
+      }
       className="cursor-pointer rounded-md p-1.5 text-foreground transition-colors hover:text-brand-secondary"
     >
       {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
