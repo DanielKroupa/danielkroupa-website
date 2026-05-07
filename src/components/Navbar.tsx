@@ -1,9 +1,10 @@
 import { Link, useLocation } from "@tanstack/react-router";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, Moon, Sun, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { SERVICE_DEFINITIONS } from "#/utils/services";
 import { useAnalyticsTracking } from "#/hooks/useAnalyticsTracking";
+import { useTheme } from "#/hooks/useTheme";
 
 type NavbarProps = {
   isMobileMenuOpen: boolean;
@@ -41,6 +42,7 @@ export function Navbar({
   const [isServicesDesktopOpen, setIsServicesDesktopOpen] = useState(false);
   const [isServicesMobileOpen, setIsServicesMobileOpen] = useState(false);
   const { trackSelectContent } = useAnalyticsTracking();
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
   const servicesMenuRef = useRef<HTMLDivElement | null>(null);
   const servicesButtonRef = useRef<HTMLButtonElement | null>(null);
@@ -138,6 +140,17 @@ export function Navbar({
   const navLinkClass =
     "cursor-pointer text-foreground transition-colors hover:text-brand-secondary";
 
+  const ThemeToggleButton = () => (
+    <button
+      type="button"
+      onClick={toggleTheme}
+      aria-label={theme === "dark" ? "Přepnout na světlý motiv" : "Přepnout na tmavý motiv"}
+      className="cursor-pointer rounded-md p-1.5 text-foreground transition-colors hover:text-brand-secondary"
+    >
+      {theme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
+    </button>
+  );
+
   return (
     <nav className="container mx-auto px-6 py-4">
       <div className="flex items-center justify-between">
@@ -222,6 +235,7 @@ export function Navbar({
           >
             Nezávazná poptávka
           </button>
+          <ThemeToggleButton />
         </div>
 
         <button
@@ -302,6 +316,7 @@ export function Navbar({
               >
                 Nezávazná poptávka
               </button>
+              <ThemeToggleButton />
             </div>
           </motion.div>
         )}

@@ -13,7 +13,7 @@ import { PrivacyOverlayProvider } from "../hooks/usePrivacyOverlay";
 
 import appCss from "../styles.css?url";
 
-const THEME_INIT_SCRIPT = `(function(){try{var root=document.documentElement;var media=window.matchMedia('(prefers-color-scheme: dark)');var apply=function(isDark){var resolved=isDark?'dark':'light';root.classList.remove('light','dark');root.classList.add(resolved);root.style.colorScheme=resolved;root.removeAttribute('data-theme');};apply(media.matches);if(typeof media.addEventListener==='function'){media.addEventListener('change',function(event){apply(event.matches);});}else if(typeof media.addListener==='function'){media.addListener(function(event){apply(event.matches);});}}catch(e){}})();`;
+const THEME_INIT_SCRIPT = `(function(){try{var root=document.documentElement;var stored=localStorage.getItem('theme');var apply=function(isDark){var resolved=isDark?'dark':'light';root.classList.remove('light','dark');root.classList.add(resolved);root.style.colorScheme=resolved;};if(stored==='dark'||stored==='light'){apply(stored==='dark');}else{var media=window.matchMedia('(prefers-color-scheme: dark)');apply(media.matches);if(typeof media.addEventListener==='function'){media.addEventListener('change',function(e){if(!localStorage.getItem('theme')){apply(e.matches);}});}else if(typeof media.addListener==='function'){media.addListener(function(e){if(!localStorage.getItem('theme')){apply(e.matches);}});}}}catch(e){}})();`;
 
 export const Route = createRootRoute({
   head: () => ({
