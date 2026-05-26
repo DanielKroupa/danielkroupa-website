@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ProfilRouteImport } from './routes/profil'
 import { Route as PrivacyRouteImport } from './routes/privacy'
 import { Route as FaqRouteImport } from './routes/faq'
 import { Route as IndexRouteImport } from './routes/index'
@@ -22,6 +23,11 @@ import { Route as SluzbyOptimalizaceWebuRouteImport } from './routes/sluzby/opti
 const TermsRoute = TermsRouteImport.update({
   id: '/terms',
   path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfilRoute = ProfilRouteImport.update({
+  id: '/profil',
+  path: '/profil',
   getParentRoute: () => rootRouteImport,
 } as any)
 const PrivacyRoute = PrivacyRouteImport.update({
@@ -69,6 +75,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
+  '/profil': typeof ProfilRoute
   '/terms': typeof TermsRoute
   '/sluzby/optimalizace-webu': typeof SluzbyOptimalizaceWebuRoute
   '/sluzby/redesign': typeof SluzbyRedesignRoute
@@ -80,6 +87,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
+  '/profil': typeof ProfilRoute
   '/terms': typeof TermsRoute
   '/sluzby/optimalizace-webu': typeof SluzbyOptimalizaceWebuRoute
   '/sluzby/redesign': typeof SluzbyRedesignRoute
@@ -92,6 +100,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/faq': typeof FaqRoute
   '/privacy': typeof PrivacyRoute
+  '/profil': typeof ProfilRoute
   '/terms': typeof TermsRoute
   '/sluzby/optimalizace-webu': typeof SluzbyOptimalizaceWebuRoute
   '/sluzby/redesign': typeof SluzbyRedesignRoute
@@ -105,6 +114,7 @@ export interface FileRouteTypes {
     | '/'
     | '/faq'
     | '/privacy'
+    | '/profil'
     | '/terms'
     | '/sluzby/optimalizace-webu'
     | '/sluzby/redesign'
@@ -116,6 +126,7 @@ export interface FileRouteTypes {
     | '/'
     | '/faq'
     | '/privacy'
+    | '/profil'
     | '/terms'
     | '/sluzby/optimalizace-webu'
     | '/sluzby/redesign'
@@ -127,6 +138,7 @@ export interface FileRouteTypes {
     | '/'
     | '/faq'
     | '/privacy'
+    | '/profil'
     | '/terms'
     | '/sluzby/optimalizace-webu'
     | '/sluzby/redesign'
@@ -139,6 +151,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   FaqRoute: typeof FaqRoute
   PrivacyRoute: typeof PrivacyRoute
+  ProfilRoute: typeof ProfilRoute
   TermsRoute: typeof TermsRoute
   SluzbyOptimalizaceWebuRoute: typeof SluzbyOptimalizaceWebuRoute
   SluzbyRedesignRoute: typeof SluzbyRedesignRoute
@@ -154,6 +167,13 @@ declare module '@tanstack/react-router' {
       path: '/terms'
       fullPath: '/terms'
       preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/profil': {
+      id: '/profil'
+      path: '/profil'
+      fullPath: '/profil'
+      preLoaderRoute: typeof ProfilRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy': {
@@ -219,6 +239,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   FaqRoute: FaqRoute,
   PrivacyRoute: PrivacyRoute,
+  ProfilRoute: ProfilRoute,
   TermsRoute: TermsRoute,
   SluzbyOptimalizaceWebuRoute: SluzbyOptimalizaceWebuRoute,
   SluzbyRedesignRoute: SluzbyRedesignRoute,
