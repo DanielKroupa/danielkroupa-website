@@ -42,9 +42,9 @@ Projekt slouží jako osobní/profesní web se zaměřením na:
 - Framework: TanStack Start
 - Router: TanStack Router
 - UI: React 19
-- Jazyk: TypeScript (strict)
-- Styling: Tailwind CSS 4
-- Formuláře: React Hook Form + Zod
+- TypeScript
+- Stylizace: Tailwind CSS 4
+- Formy + validace: React Hook Form + Zod
 - Server runtime/build: Nitro
 - E-mail služba: Resend
 - Testování: Vitest + Testing Library + jsdom
@@ -70,15 +70,13 @@ npm install
 npm run dev
 ```
 
-Aplikace poběží ve vývojovém režimu přes Vite.
+Aplikace poběží ve vývojovém režimu.
 
 ## Scripts
 
 Definováno v `package.json`:
 
 - `npm run dev` - spuštění vývojového serveru
-- `npm run build` - produkční build + TypeScript kontrola (`tsc --noEmit`)
-- `npm run test` - spuštění testů přes Vitest (run mode)
 - `npm run start` - lokální preview produkčního buildu
 
 ## Environment Variables
@@ -120,12 +118,7 @@ Testy aktuálně pokrývají hlavně aplikační logiku v `src/lib`:
 ## Architektura (stručně)
 
 - Routy jsou definované souborově v `src/routes`.
-- Root layout (`__root.tsx`) skládá globální shell: header, footer, consent/privacy vrstvy a analytics gate.
+- Root layout (`__root.tsx`) skládá globální komponenty: header, footer, consent/privacy vrstvy a analytické vrstvy.
 - UI komponenty v `src/components` jsou zaměřené na prezentaci.
 - Server logika je oddělená v `src/lib/server`.
-- Schémata a validace jsou centralizované v `src/lib/schemas`.
-
-## Poznámky
-
-- Projekt nepoužívá Appwrite proměnné; byly odstraněny z env šablony jako legacy.
-- Build pipeline očekává strict TypeScript kontrolu při každém buildu.
+- Schémata a validace jsou umístěné v `src/lib/schemas`.
