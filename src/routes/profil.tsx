@@ -78,50 +78,6 @@ const HERO_CONTACT_LINKS: {
   },
 ];
 
-const SKILLS: {
-  title: string;
-  description: string;
-  progress: number;
-  icon: LucideIcon;
-  details?: string[];
-}[] = [
-  {
-    title: "Web Development",
-    description: "Frontend, backend integrace, deployment a výkon.",
-    progress: 86,
-    icon: Code2,
-  },
-  {
-    title: "UX/UI Design",
-    description: "Jednoduchost, čitelnost, ergonomie a detail.",
-    progress: 78,
-    icon: Brush,
-  },
-  {
-    title: "IT & Hardware",
-    description: "Diagnostika, konfigurace systému a práce s hardwarem.",
-    progress: 81,
-    icon: Cpu,
-  },
-  {
-    title: "Hudba",
-    description: "Klavír, kytara, tvorba a live zkušenosti.",
-    progress: 84,
-    icon: Music4,
-  },
-  {
-    title: "Angličtina",
-    description: "Komunikace a technická spolupráce v praxi.",
-    progress: 70,
-    icon: Languages,
-    details: [
-      "Komunikativní úroveň mezi A2-B1",
-      "Čtení a psaní dokumentace",
-      "Komunikace při spolupráci",
-    ],
-  },
-];
-
 const SECTIONS: {
   id: string;
   title: string;
