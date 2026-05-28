@@ -13,11 +13,15 @@ import {
   Cpu,
   Film,
   Guitar,
+  Github,
+  Instagram,
   Languages,
   Leaf,
+  Mail,
   MessageCircle,
   Mountain,
   Music4,
+  Phone,
   Sparkles,
   Wrench,
 } from "lucide-react";
@@ -42,6 +46,36 @@ const TECH_TAGS = [
   "Docker",
   "Git",
   "MySQL",
+];
+
+const HERO_CONTACT_LINKS: {
+  label: string;
+  href: string;
+  icon: LucideIcon;
+  external?: boolean;
+}[] = [
+  {
+    label: "GitHub",
+    href: "https://github.com/username",
+    icon: Github,
+    external: true,
+  },
+  {
+    label: "Instagram",
+    href: "https://instagram.com/username",
+    icon: Instagram,
+    external: true,
+  },
+  {
+    label: "Telefon",
+    href: "tel:+420605465600",
+    icon: Phone,
+  },
+  {
+    label: "Email",
+    href: "mailto:info@danielkroupa.cz",
+    icon: Mail,
+  },
 ];
 
 const SKILLS: {
@@ -110,12 +144,12 @@ const SECTIONS: {
       "Docker",
       "Git",
       "REST API",
-      "deployment",
+      "Deployment",
       "VPS konfigurace",
       "SEO optimalizace",
-      "responzivní design",
-      "kontaktní formuláře",
-      "rezervační systémy",
+      "Responzivní design",
+      "Kontaktní formuláře",
+      "Rezervační systémy",
       "API propojení",
       "Auth integrace",
     ],
@@ -145,17 +179,17 @@ const SECTIONS: {
     title: "UX/UI Design",
     icon: Brush,
     points: [
-      "návrhy moderních rozhraní",
-      "důraz na jednoduchost a použitelnost",
-      "wireframy",
-      "responzivní design",
-      "dark/light mode",
-      "animace UI",
-      "user flow",
-      "cit pro vizuální čistotu",
-      "moderní layouty",
+      "Návrhy moderních rozhraní",
+      "Důraz na jednoduchost a použitelnost",
+      "Wireframy",
+      "Responzivní design",
+      "Dark/light mode",
+      "Animace UI",
+      "User flow",
+      "Cit pro vizuální čistotu",
+      "Moderní layouty",
       "UX přemýšlení",
-      "práce s detailem",
+      "Práce s detailem",
     ],
     tags: ["UX", "UI", "Wireframe", "Dark/Light", "User Flow"],
   },
@@ -164,20 +198,20 @@ const SECTIONS: {
     title: "IT, hardware a systémy",
     icon: Cpu,
     points: [
-      "diagnostika problémů",
-      "stavba a upgrade PC",
+      "Diagnostika problémů",
+      "Stavba a upgrade PC",
       "BIOS/UEFI konfigurace",
-      "troubleshooting Windows/macOS/Linux",
-      "konfigurace systému",
+      "Troubleshooting Windows/macOS/Linux",
+      "Konfigurace systému",
       "Docker",
       "VPS servery",
-      "Hackintosh",
-      "práce s hardwarem",
-      "reinstalace a optimalizace systému",
-      "opravy zařízení",
-      "práce s technickou dokumentací",
-      "síťové základy",
-      "optimalizace zařízení",
+      "Instalace Hackintosh",
+      "Práce s hardwarem",
+      "Reinstalace a optimalizace systému",
+      "Opravy zařízení",
+      "Práce s technickou dokumentací",
+      "Síťové základy",
+      "Optimalizace zařízení",
     ],
     tags: ["Windows", "macOS", "Linux", "Docker", "VPS", "Hardware"],
   },
@@ -187,16 +221,16 @@ const SECTIONS: {
     icon: Wrench,
 
     points: [
-      "čištění zařízení",
-      "výměna komponent",
-      "upgrade disku a RAM",
-      "přeinstalace systému",
-      "řešení problémů se softwarem",
-      "optimalizace výkonu zařízení",
-      "základní servis zařízení",
-      "diagnostika problémů",
+      "Čištění zařízení",
+      "Výměna a upgrade komponent",
+      "Stavba PC na míru",
+      "Přeinstalace systému",
+      "Řešení problémů se softwarem",
+      "Optimalizace výkonu zařízení",
+      "Základní servis zařízení",
+      "Diagnostika problémů",
     ],
-    tags: ["Servis", "Diagnostika", "RAM", "SSD", "Optimalizace"],
+    tags: ["Servis", "Diagnostika", "Optimalizace"],
   },
   {
     id: "kreativita",
@@ -204,14 +238,12 @@ const SECTIONS: {
     icon: Sparkles,
 
     points: [
-      "střih videa",
-      "fotografie",
-      "amatérské natáčení",
-      "úprava grafiky",
-      "cit pro kompozici",
-      "práce s detailem",
-      "kreativní přístup",
-      "kombinace technického a kreativního myšlení",
+      "Střih a úprava videa",
+      "Fotografie",
+      "Amatérské natáčení",
+      "Úprava grafiky / fotky",
+      "Cit pro kompozici",
+      "Kombinace technického a kreativního myšlení",
     ],
     tags: ["Video", "Foto", "Kompozice", "Grafika"],
   },
@@ -220,14 +252,14 @@ const SECTIONS: {
     title: "Komunikace a přístup",
     icon: MessageCircle,
     points: [
-      "vysvětluji technické věci lidskou řečí",
-      "preferuji jednoduchá a funkční řešení",
-      "pracuji samostatně",
-      "hledám praktická řešení",
-      "kombinuji technické a kreativní myšlení",
-      "spolehlivost",
-      "schopnost návrhu řešení",
-      "schopnost práce s dokumentací",
+      "Vysvětluji technické věci lidskou řečí",
+      "Preferuji jednoduchá a funkční řešení",
+      "Pracuji samostatně",
+      "Hledám praktická řešení",
+      "Kombinuji technické a kreativní myšlení",
+      "Spolehlivost",
+      "Schopnost návrhu řešení",
+      "Schopnost práce s dokumentací",
     ],
     tags: ["Komunikace", "Samostatnost", "Spolehlivost", "Praxe"],
   },
@@ -353,91 +385,41 @@ export function ProfilePage() {
               transition={{ duration: 0.7, delay: 0.15 }}
               className="flex items-center justify-center"
             >
-              <Image
-                src="/img/danielkroupa.webp"
-                width={500}
-                height={500}
-                alt="Profile Image"
-                className="relative object-cover mx-auto mb-5 flex h-72 w-72 items-center justify-center rounded-full border border-brand-secondary/35 bg-linear-to-br from-brand-primary/25 via-brand-secondary/20 to-brand-primary/10 "
-              />
+              <div className="w-full max-w-xs">
+                <Image
+                  src="/img/danielkroupa.webp"
+                  width={500}
+                  height={500}
+                  alt="Profile Image"
+                  className="relative mx-auto mb-5 flex h-72 w-72 items-center justify-center rounded-full border border-brand-secondary/35 bg-linear-to-br from-brand-primary/25 via-brand-secondary/20 to-brand-primary/10 object-cover"
+                />
+
+                <div className="grid grid-cols-2 gap-3">
+                  {HERO_CONTACT_LINKS.map((item, i) => {
+                    const Icon = item.icon;
+                    return (
+                      <motion.a
+                        key={item.label}
+                        href={item.href}
+                        aria-label={item.label}
+                        title={item.label}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.35, delay: 0.3 + i * 0.06 }}
+                        whileHover={{ y: -4 }}
+                        whileTap={{ scale: 0.98 }}
+                        target={item.external ? "_blank" : undefined}
+                        rel={item.external ? "noopener noreferrer" : undefined}
+                        className="group flex h-14 items-center justify-center rounded-2xl border border-border/80 bg-card/70 text-brand-primary shadow-sm shadow-black/5 transition-colors hover:border-brand-secondary/45 hover:text-brand-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60"
+                      >
+                        <Icon size={20} />
+                        <span className="sr-only">{item.label}</span>
+                      </motion.a>
+                    );
+                  })}
+                </div>
+              </div>
             </motion.div>
-          </div>
-        </section>
-
-        {/* ── Skill overview ── */}
-        <section className="rounded-3xl border border-border bg-card/65 p-5 backdrop-blur-sm sm:p-8 md:p-10">
-          <div className="mb-8 flex flex-col gap-3">
-            <p className="text-xs uppercase font-bold tracking-[0.24em] text-brand-secondary">
-              Skill overview
-            </p>
-            <h2 className="text-3xl text-foreground md:text-5xl">
-              Dovednosti v praxi
-            </h2>
-            <p className="max-w-3xl text-sm leading-relaxed text-brand-text-soft md:text-base">
-              Přehled ukazuje oblasti, ve kterých mám nejvíce praktické
-              zkušenosti. Berte jej jako orientační mapu toho, kde se pohybuji
-              nejjistěji.
-            </p>
-          </div>
-
-          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {SKILLS.map((skill, i) => {
-              const Icon = skill.icon;
-              const filled = Math.round((skill.progress / 100) * 20);
-              return (
-                <motion.div
-                  key={skill.title}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.3 }}
-                  transition={{ duration: 0.45, delay: i * 0.06 }}
-                  whileHover={{ y: -4 }}
-                  className="rounded-2xl border border-border bg-linear-to-br from-brand-surface/65 to-card/80 p-4 shadow-sm shadow-black/5 transition-colors hover:border-brand-secondary/45"
-                >
-                  <div className="mb-4 flex items-center justify-between gap-3">
-                    <div className="inline-flex rounded-full bg-brand-primary/15 p-2 text-brand-primary">
-                      <Icon size={16} />
-                    </div>
-                    <span className="text-sm font-semibold text-brand-secondary">
-                      {skill.progress}%
-                    </span>
-                  </div>
-                  <h3 className="mb-2 text-lg font-semibold text-foreground">
-                    {skill.title}
-                  </h3>
-                  <p className="mb-4 text-sm leading-relaxed text-brand-text-soft">
-                    {skill.description}
-                  </p>
-
-                  <div
-                    className="mb-3 grid grid-cols-20 gap-1"
-                    role="progressbar"
-                    aria-label={`Úroveň ${skill.title}`}
-                    aria-valuemin={0}
-                    aria-valuemax={100}
-                    aria-valuenow={skill.progress}
-                  >
-                    {Array.from({ length: 20 }, (_, s) => (
-                      <span
-                        key={s}
-                        className={`h-2 rounded-full transition-colors ${s < filled ? "bg-linear-to-r from-brand-primary to-brand-secondary" : "bg-background/70"}`}
-                      />
-                    ))}
-                  </div>
-
-                  {skill.details ? (
-                    <ul className="space-y-1 text-xs leading-relaxed text-brand-text-soft">
-                      {skill.details.map((d) => (
-                        <li key={d} className="flex gap-2">
-                          <span className="mt-1 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-secondary" />
-                          <span>{d}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  ) : null}
-                </motion.div>
-              );
-            })}
           </div>
         </section>
 
