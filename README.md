@@ -1,263 +1,131 @@
-Welcome to your new TanStack Start app!
+# Daniel Kroupa Web
 
-# Getting Started
+![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A520.10.0-339933?logo=node.js&logoColor=white)
+![npm](https://img.shields.io/badge/npm-%E2%89%A510.0.0-CB3837?logo=npm&logoColor=white)
+![TanStack Start](https://img.shields.io/badge/TanStack-Start-FF4154)
+![TanStack Router](https://img.shields.io/badge/TanStack-Router-FF4154)
+![TypeScript](https://img.shields.io/badge/TypeScript-Strict-3178C6?logo=typescript&logoColor=white)
+![Vitest](https://img.shields.io/badge/Vitest-3.x-6E9F18?logo=vitest&logoColor=white)
 
-To run this application:
+Produkční web postavený na frameworku TanStack Start pro prezentaci služeb a sběr poptávek přes kontaktní formulář.
+
+## Přehled
+
+Projekt slouží jako osobní/profesní web se zaměřením na:
+
+- vývoj webu na míru,
+- redesign webových stránek,
+- SEO zlepšení,
+- webovou analytiku,
+- výkon a optimalizaci webu.
+
+## Funkce
+
+### Business funkce
+
+- Landing page se sekcemi: hero, služby, proces spolupráce, projekty, ceník, o mně, kontakt.
+- Detailní stránky služeb pod `/sluzby/*`.
+- Samostatná profilová stránka `/profil`.
+- Stránky s právním obsahem (`/privacy`, `/terms`) a FAQ (`/faq`).
+
+### Technické funkce
+
+- File-based routování pomocí TanStack Router.
+- Server funkce (`createServerFn`) pro zpracování kontaktů.
+- Validace formuláře přes Zod + React Hook Form.
+- Cookie consent vrstva a podmíněné spouštění analytiky.
+- SEO head metadata přes sdílenou utilitu.
+- Testy pro klíčovou logiku (schema, e-mail client, šablony e-mailů, server function, cookies).
+
+## Tech Stack
+
+- Framework: TanStack Start
+- Router: TanStack Router
+- UI: React 19
+- Jazyk: TypeScript (strict)
+- Styling: Tailwind CSS 4
+- Formuláře: React Hook Form + Zod
+- Server runtime/build: Nitro
+- E-mail služba: Resend
+- Testování: Vitest + Testing Library + jsdom
+- Ikony: Lucide React, React Icons
+- Obrázky: @unpic/react
+
+## Getting Started
+
+### Požadavky
+
+- Node.js `>=20.10.0`
+- npm `>=10.0.0`
+
+### Instalace
 
 ```bash
 npm install
+```
+
+### Lokální vývoj
+
+```bash
 npm run dev
 ```
 
-# Building For Production
+Aplikace poběží ve vývojovém režimu přes Vite.
 
-To build this application for production:
+## Scripts
 
-```bash
-npm run build
+Definováno v `package.json`:
+
+- `npm run dev` - spuštění vývojového serveru
+- `npm run build` - produkční build + TypeScript kontrola (`tsc --noEmit`)
+- `npm run test` - spuštění testů přes Vitest (run mode)
+- `npm run start` - lokální preview produkčního buildu
+
+## Environment Variables
+
+Konfigurace je v souboru `.env.example`.
+
+| Proměnná                 | Povinná | Účel                                                             |
+| ------------------------ | ------- | ---------------------------------------------------------------- |
+| `RESEND_API_KEY`         | Ano     | API klíč pro Resend (odesílání e-mailů z kontaktního formuláře). |
+| `CONTACT_FROM_EMAIL`     | Ano     | Odesílatel e-mailů (musí být ověřený v Resend).                  |
+| `CONTACT_TO_EMAIL`       | Ano     | Příjemce poptávek z kontaktního formuláře.                       |
+| `VITE_GA_MEASUREMENT_ID` | Ne      | Google Analytics 4 Measurement ID (např. `G-XXXXXXXXXX`).        |
+
+Ukázka:
+
+```dotenv
+RESEND_API_KEY="re_xxxxx..."
+CONTACT_FROM_EMAIL="noreply@danielkroupa.cz"
+CONTACT_TO_EMAIL="info@danielkroupa.cz"
+VITE_GA_MEASUREMENT_ID=""
 ```
 
-## Deployment (Vercel + Nitro)
+## Testování
 
-This project is configured for deployment on Vercel using Nitro.
-
-### 1. Vercel Project Settings
-
-- Framework Preset: Other
-- Install Command: `npm ci`
-- Build Command: `npm run build`
-- Output Directory: leave empty (Nitro uses `.output` internally)
-- Node.js Version: 20.x or newer
-
-### 2. Environment Variables
-
-Set these variables in Vercel for both Preview and Production:
-
-- `RESEND_API_KEY`
-- `CONTACT_FROM_EMAIL`
-- `CONTACT_TO_EMAIL`
-
-Important:
-
-- `CONTACT_FROM_EMAIL` must be a verified sender/domain in Resend
-- in production, `CONTACT_FROM_EMAIL` must not be `onboarding@resend.dev`
-- in production, `CONTACT_FROM_EMAIL` should be on `@danielkroupa.cz`
-
-### 3. Production Email Runbook (Resend + WEDOS DNS + Seznam mailbox)
-
-This project sends contact form emails through Resend server functions.
-
-Recommended production values:
-
-- `CONTACT_FROM_EMAIL=noreply@danielkroupa.cz`
-- `CONTACT_TO_EMAIL=info@danielkroupa.cz`
-
-Setup steps:
-
-1. In Resend, add domain `danielkroupa.cz` and open DNS verification details.
-2. In WEDOS DNS, add all records required by Resend (verification + DKIM + SPF related records shown in Resend).
-3. Keep Seznam inbox routing intact:
-
-- do not remove existing MX records used for incoming mail to `info@danielkroupa.cz`
-
-4. SPF rule:
-
-- keep exactly one SPF TXT record for the root domain
-- if SPF already exists for Seznam, merge includes into that single record (do not create a second SPF TXT)
-
-5. Wait for DNS propagation and confirm domain status is `Verified` in Resend.
-6. In Vercel Project Settings, set env vars for both Preview and Production:
-
-- `RESEND_API_KEY`
-- `CONTACT_FROM_EMAIL`
-- `CONTACT_TO_EMAIL`
-
-7. Trigger a production deploy and submit a live contact form test.
-8. Verify:
-
-- email arrived to `info@danielkroupa.cz`
-- confirmation email was sent to the form submitter
-- Resend Activity shows successful delivery and message IDs
-
-### 4. Verify Before Deploy
-
-```bash
-npm ci
-npm run test
-npm run build
-```
-
-After build, make sure Nitro output is generated in `.output`.
-
-## Testing
-
-This project uses [Vitest](https://vitest.dev/) for testing. You can run the tests with:
+Spuštění testů:
 
 ```bash
 npm run test
 ```
 
-## Styling
+Testy aktuálně pokrývají hlavně aplikační logiku v `src/lib`:
 
-This project uses [Tailwind CSS](https://tailwindcss.com/) for styling.
+- validace kontaktního formuláře,
+- práci s cookie consent daty,
+- inicializaci Resend klienta,
+- generování e-mailových šablon,
+- server funkci pro odeslání kontaktu.
 
-### Removing Tailwind CSS
+## Architektura (stručně)
 
-If you prefer not to use Tailwind CSS:
+- Routy jsou definované souborově v `src/routes`.
+- Root layout (`__root.tsx`) skládá globální shell: header, footer, consent/privacy vrstvy a analytics gate.
+- UI komponenty v `src/components` jsou zaměřené na prezentaci.
+- Server logika je oddělená v `src/lib/server`.
+- Schémata a validace jsou centralizované v `src/lib/schemas`.
 
-1. Remove the demo pages in `src/routes/demo/`
-2. Replace the Tailwind import in `src/styles.css` with your own styles
-3. Remove `tailwindcss()` from the plugins array in `vite.config.ts`
-4. Uninstall the packages: `npm install @tailwindcss/vite tailwindcss -D`
+## Poznámky
 
-## Routing
-
-This project uses [TanStack Router](https://tanstack.com/router) with file-based routing. Routes are managed as files in `src/routes`.
-
-### Adding A Route
-
-To add a new route to your application just add a new file in the `./src/routes` directory.
-
-TanStack will automatically generate the content of the route file for you.
-
-Now that you have two routes you can use a `Link` component to navigate between them.
-
-### Adding Links
-
-To use SPA (Single Page Application) navigation you will need to import the `Link` component from `@tanstack/react-router`.
-
-```tsx
-import { Link } from "@tanstack/react-router";
-```
-
-Then anywhere in your JSX you can use it like so:
-
-```tsx
-<Link to="/about">About</Link>
-```
-
-This will create a link that will navigate to the `/about` route.
-
-More information on the `Link` component can be found in the [Link documentation](https://tanstack.com/router/v1/docs/framework/react/api/router/linkComponent).
-
-### Using A Layout
-
-In the File Based Routing setup the layout is located in `src/routes/__root.tsx`. Anything you add to the root route will appear in all the routes. The route content will appear in the JSX where you render `{children}` in the `shellComponent`.
-
-Here is an example layout that includes a header:
-
-```tsx
-import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
-
-export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "My App" },
-    ],
-  }),
-  shellComponent: ({ children }) => (
-    <html lang="en">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <header>
-          <nav>
-            <Link to="/">Home</Link>
-            <Link to="/about">About</Link>
-          </nav>
-        </header>
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  ),
-});
-```
-
-More information on layouts can be found in the [Layouts documentation](https://tanstack.com/router/latest/docs/framework/react/guide/routing-concepts#layouts).
-
-## Server Functions
-
-TanStack Start provides server functions that allow you to write server-side code that seamlessly integrates with your client components.
-
-```tsx
-import { createServerFn } from "@tanstack/react-start";
-
-const getServerTime = createServerFn({
-  method: "GET",
-}).handler(async () => {
-  return new Date().toISOString();
-});
-
-// Use in a component
-function MyComponent() {
-  const [time, setTime] = useState("");
-
-  useEffect(() => {
-    getServerTime().then(setTime);
-  }, []);
-
-  return <div>Server time: {time}</div>;
-}
-```
-
-## API Routes
-
-You can create API routes by using the `server` property in your route definitions:
-
-```tsx
-import { createFileRoute } from "@tanstack/react-router";
-import { json } from "@tanstack/react-start";
-
-export const Route = createFileRoute("/api/hello")({
-  server: {
-    handlers: {
-      GET: () => json({ message: "Hello, World!" }),
-    },
-  },
-});
-```
-
-## Data Fetching
-
-There are multiple ways to fetch data in your application. You can use TanStack Query to fetch data from a server. But you can also use the `loader` functionality built into TanStack Router to load the data for a route before it's rendered.
-
-For example:
-
-```tsx
-import { createFileRoute } from "@tanstack/react-router";
-
-export const Route = createFileRoute("/people")({
-  loader: async () => {
-    const response = await fetch("https://swapi.dev/api/people");
-    return response.json();
-  },
-  component: PeopleComponent,
-});
-
-function PeopleComponent() {
-  const data = Route.useLoaderData();
-  return (
-    <ul>
-      {data.results.map((person) => (
-        <li key={person.name}>{person.name}</li>
-      ))}
-    </ul>
-  );
-}
-```
-
-Loaders simplify your data fetching logic dramatically. Check out more information in the [Loader documentation](https://tanstack.com/router/latest/docs/framework/react/guide/data-loading#loader-parameters).
-
-# Demo files
-
-Files prefixed with `demo` can be safely deleted. They are there to provide a starting point for you to play around with the features you've installed.
-
-# Learn More
-
-You can learn more about all of the offerings from TanStack in the [TanStack documentation](https://tanstack.com).
-
-For TanStack Start specific documentation, visit [TanStack Start](https://tanstack.com/start).
+- Projekt nepoužívá Appwrite proměnné; byly odstraněny z env šablony jako legacy.
+- Build pipeline očekává strict TypeScript kontrolu při každém buildu.
