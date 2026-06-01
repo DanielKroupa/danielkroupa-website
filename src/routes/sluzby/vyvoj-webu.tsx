@@ -344,12 +344,12 @@ export function WebDevelopmentPage() {
           <LayoutTemplate className="h-6 w-6 text-brand-primary" />
           Jaké typy webů pro klienty nejčastěji dělám
         </h2>
-        <div className="grid gap-4 md:grid-cols-2 text-brand-text-soft text-sm">
+        <div className="grid gap-4 md:grid-cols-2 text-brand-text-soft ">
           <div className="rounded-xl bg-background/60 p-4">
             <p className="mb-1 font-semibold text-foreground">
               Landing page pro jednu službu nebo akci
             </p>
-            <p>
+            <p className="text-sm">
               Ideální, když chcete podpořit jednu konkrétní nabídku, sbírat
               poptávky nebo registrace. Přehledná, jednoznačně zaměřená stránka
               bez zbytečných rušivých prvků.
@@ -359,7 +359,7 @@ export function WebDevelopmentPage() {
             <p className="mb-1 font-semibold text-foreground">
               One-page firemní web
             </p>
-            <p>
+            <p className="text-sm">
               Vše důležité na jednom místě – kdo jste, co děláte, proč si vybrat
               právě vás a jak vás kontaktovat. Skvělé pro freelancery, malé
               firmy a lokální služby.
@@ -369,15 +369,17 @@ export function WebDevelopmentPage() {
             <p className="mb-1 font-semibold text-foreground">
               Menší katalog služeb nebo produktů
             </p>
-            <p>
+            <p className="text-sm">
               Pokud nabízíte více služeb nebo kategorií produktů, postavíme web
               tak, aby si návštěvník snadno našel to, co ho zajímá, a rychle se
               dostal k poptávce či nákupu.
             </p>
           </div>
           <div className="rounded-xl bg-background/60 p-4">
-            <p className="mb-1 font-semibold text-foreground">Menší e-shop</p>
-            <p>
+            <p className="mb-1 font-semibold text-foreground">
+              Menší / střední e-shop
+            </p>
+            <p className="text-sm">
               Pro menší až střední počet produktů, kde je důležitá jednoduchost,
               přehlednost a snadný nákupní proces – bez zbytečné složitosti
               velkých e-shopových řešení.
@@ -387,7 +389,7 @@ export function WebDevelopmentPage() {
             <p className="mb-1 font-semibold text-foreground">
               Webové platformy a portály na míru
             </p>
-            <p>
+            <p className="text-sm">
               Když potřebujete něco specifičtějšího než běžný prezentační web –
               například členskou sekci, interní portál nebo jednodušší aplikaci,
               kterou zákazníci či klienti používají pravidelně.
@@ -435,9 +437,12 @@ export function WebDevelopmentPage() {
           variantu, která dává smysl jak z pohledu výsledku, tak rozpočtu.
         </p>
         <p className=" text-brand-text-soft">
-          Máte představu o rozpočtu? ale nejste si jistí, co vše za něj
-          dostanete? Řeknu vám, jaké máte dostupné možnosti a pomůžu s
-          přizpůsobením projektu vašim finančním možnostem.
+          <b>
+            Máte představu o rozpočtu? Ale nejste si jistí, co vše za něj
+            dostanete?
+          </b>{" "}
+          Řeknu vám, jaké máte dostupné možnosti a pomůžu s přizpůsobením
+          projektu vašim finančním možnostem.
         </p>
       </section>
 

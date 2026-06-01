@@ -34,11 +34,12 @@ export function SeoImprovementsPage() {
     <ServiceDetailTemplate title={service.title}>
       <section className="mb-10 grid gap-8 md:grid-cols-[2fr,1.4fr] items-start">
         <div className="space-y-4 text-lg leading-relaxed text-brand-text-soft">
+          <p>Nezobrazuje se váš web v prvních výsledcích na Googlu?</p>
           <p>
-            SEO není jednorázový zásah. Je to postupné ladění webu, aby vás
-            Google ukazoval lidem, kteří hledají přesně to, co nabízíte. Dobře
-            provedené SEO přivádí zákazníky, kteří aktivně hledají vaši službu –
-            a to i ve chvíli, kdy vy spíte.
+            Tento problém řeší služba SEO (Search Engine Optimization). Je to
+            postupné ladění webu, aby vás Google ukazoval lidem, kteří hledají
+            přesně to, co nabízíte. Dobře provedené SEO přivádí zákazníky, kteří
+            aktivně hledají vaši službu – a to i ve chvíli, kdy vy spíte.
           </p>
           <p>
             Žádné složité reporty plné čísel, kterým nikdo nerozumí. Společně
@@ -53,10 +54,7 @@ export function SeoImprovementsPage() {
         <h2 className="mb-2 text-2xl font-semibold text-foreground">
           Signály, že je čas řešit SEO
         </h2>
-        <p className="mb-5 text-brand-text-soft">
-          Pokud se vám některý z těchto bodů zdá povědomý, je čas se do toho
-          pustit.
-        </p>
+
         <div className="grid gap-3 sm:grid-cols-2">
           {[
             {
@@ -99,13 +97,9 @@ export function SeoImprovementsPage() {
 
       <section className="mb-10 rounded-2xl border border-border bg-card/70 p-4 sm:p-5 md:p-8">
         <h2 className="mb-4 flex items-center gap-3 text-2xl font-semibold text-foreground">
-          <Settings className="h-6 w-6 text-brand-primary" />
           Jak SEO spolupráce probíhá
         </h2>
-        <p className="mb-4 text-brand-text-soft">
-          Každý krok má svůj smysl a díky tomu víte, co se zrovna děje a co
-          přijde jako další.
-        </p>
+
         <ol className="space-y-4 text-brand-text-soft">
           <li className="flex gap-3 rounded-xl bg-background/60 p-4">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold text-brand-primary">

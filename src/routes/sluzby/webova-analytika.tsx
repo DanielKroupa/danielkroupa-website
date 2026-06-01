@@ -123,13 +123,9 @@ export function WebAnalyticsPage() {
 
       <section className="mb-10 rounded-2xl border border-border bg-card/70 p-4 sm:p-5 md:p-8">
         <h2 className="mb-4 flex items-center gap-3 text-2xl font-semibold text-foreground">
-          <Settings className="h-6 w-6 text-brand-primary" />
           Jak spolupráce probíhá krok za krokem
         </h2>
-        <p className="mb-4 text-brand-text-soft">
-          Postup je přehledný a navazuje na vaše obchodní cíle, aby výsledkem
-          nebylo jen technické nastavení, ale prakticky použitelné měření.
-        </p>
+
         <ol className="space-y-4 text-brand-text-soft">
           <li className="flex gap-3 rounded-xl bg-background/60 p-4">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold text-brand-primary">
@@ -250,11 +246,9 @@ export function WebAnalyticsPage() {
 
       <section className="mb-10 rounded-2xl border border-border bg-card/70 p-4 sm:p-5 md:p-8">
         <h2 className="mb-3 text-2xl font-semibold text-foreground">
-          Co tato služba není
+          Co tato služba neřeší
         </h2>
-        <p className="mb-4 text-brand-text-soft">
-          Abychom měli od začátku jasno, webová analytika neřeší:
-        </p>
+
         <div className="grid gap-3 sm:grid-cols-2">
           {[
             "Dlouhodobou SEO strategii a průběžné SEO kampaně",

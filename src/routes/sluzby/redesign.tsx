@@ -5,6 +5,7 @@ import {
   CheckCircle2,
   CircleQuestionMark,
   Code2,
+  DollarSign,
   Eye,
   Globe2,
   LayoutTemplate,
@@ -177,7 +178,6 @@ export function RedesignPage() {
 
       <section className="mb-10 rounded-2xl border border-border bg-card/70 p-4 sm:p-5 md:p-8">
         <h2 className="mb-4 flex items-center gap-3 text-2xl font-semibold text-foreground">
-          <Settings className="h-6 w-6 text-brand-primary" />
           Jak redesign probíhá – krok za krokem
         </h2>
 
@@ -341,11 +341,11 @@ export function RedesignPage() {
             </div>
             <div>
               <p className="font-semibold text-foreground">
-                Oprava UX a navigace
+                Oprava rozvržení a navigace
               </p>
               <p className="text-sm text-brand-text-soft">
-                Nové rozvržení stránek tak, aby zákazník snadno našel co hledá a
-                přirozeně dospěl k poptávce nebo nákupu.
+                Nové rozvržení stránek tak, aby zákazník snadno našel z PC i
+                mobilu co hledá a přirozeně dospěl k poptávce nebo nákupu.
               </p>
             </div>
           </div>
@@ -426,15 +426,13 @@ export function RedesignPage() {
           <CircleQuestionMark className="h-6 w-6 text-brand-primary" />
           Pro koho je redesign webu ideální
         </h2>
-        <p className="mb-3 text-brand-text-soft">
-          Redesign se hodí ve dvou typických situacích:
-        </p>
-        <div className="grid gap-4 md:grid-cols-2 text-brand-text-soft text-sm mb-3">
+
+        <div className="grid gap-4 md:grid-cols-2 text-brand-text-soft  mb-3">
           <div className="rounded-xl bg-background/60 p-4">
             <p className="mb-1 font-semibold text-foreground">
               Firma nebo živnostník se starším webem
             </p>
-            <p>
+            <p className="text-sm">
               Váš web funguje 3, 5 nebo 7 let, ale v posledních měsících
               vnímáte, že přestává přinášet výsledky. Zákazníci se zmínili, že
               web vypadá zastarale. Víte, že je čas na změnu, ale nechcete
@@ -446,7 +444,7 @@ export function RedesignPage() {
             <p className="mb-1 font-semibold text-foreground">
               Přechod ze šablony na profesionální web
             </p>
-            <p>
+            <p className="text-sm">
               Začínali jste s Wixem, WordPress šablonou nebo jinou
               jednoduchoškoumou platformou – a to bylo správné rozhodnutí. Teď
               ale vaše podnikání přerostlo možnosti šablony a potřebujete web,
@@ -500,7 +498,7 @@ export function RedesignPage() {
 
       <section className="mb-10 rounded-2xl border border-border bg-card/70 p-4 sm:p-5 md:p-8">
         <h2 className="mb-4 flex items-center gap-3 text-2xl font-semibold text-foreground">
-          <Zap className="h-6 w-6 text-brand-primary" />
+          <DollarSign className="h-6 w-6 text-brand-primary" />
           Jaká je cena za redesign webu
         </h2>
         <p className="mb-3 text-brand-text-soft">

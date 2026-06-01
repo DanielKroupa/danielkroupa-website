@@ -247,11 +247,9 @@ export function WebsiteOptimizationPage() {
 
       <section className="mb-10 rounded-2xl border border-border bg-card/70 p-4 sm:p-5 md:p-8">
         <h2 className="mb-3 text-2xl font-semibold text-foreground">
-          Co tato služba není
+          Co tato služba neřeší
         </h2>
-        <p className="mb-4 text-brand-text-soft">
-          Abychom měli od začátku jasno, optimalizace výkonu neřeší:
-        </p>
+
         <div className="grid gap-3 sm:grid-cols-2">
           {[
             "Změnu vizuálu, brandingu a celkového designu webu",
