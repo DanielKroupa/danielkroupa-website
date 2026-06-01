@@ -58,9 +58,7 @@ export function RedesignPage() {
         <h2 className="mb-2 text-2xl font-semibold text-foreground">
           Kdy víte, že potřebujete redesign?
         </h2>
-        <p className="mb-5 text-brand-text-soft">
-          Tyto signály jsou jasnou známkou toho, že je čas se webem zabývat.
-        </p>
+
         <div className="grid gap-3 sm:grid-cols-2">
           {[
             {
@@ -182,10 +180,7 @@ export function RedesignPage() {
           <Settings className="h-6 w-6 text-brand-primary" />
           Jak redesign probíhá – krok za krokem
         </h2>
-        <p className="mb-4 text-brand-text-soft">
-          Redesign je systematický proces. Každý krok má svůj smysl a díky němu
-          víte, v jaké fázi se projekt nachází a co nás čeká dál.
-        </p>
+
         <ol className="space-y-4 text-brand-text-soft">
           <li className="flex gap-3 rounded-xl bg-background/60 p-4">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold leading-none text-brand-primary">
@@ -312,7 +307,7 @@ export function RedesignPage() {
           Co vše redesign zahrnuje
         </h2>
         <div className="grid gap-4 md:grid-cols-2">
-          <div className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <div className="flex gap-3 rounded-xl bg-brand-secondary/10 dark:bg-brand-secondary/5 p-4">
             <div className="mt-1 flex p-2 w-fit h-fit items-center justify-center rounded-full bg-brand-primary/15">
               <Search className="text-brand-primary" size={18} />
             </div>
@@ -326,7 +321,7 @@ export function RedesignPage() {
               </p>
             </div>
           </div>
-          <div className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <div className="flex gap-3 rounded-xl bg-brand-secondary/10 dark:bg-brand-secondary/5 p-4">
             <div className="mt-1 flex p-2 w-fit h-fit items-center justify-center rounded-full bg-brand-primary/15">
               <Eye className="text-brand-primary" size={18} />
             </div>
@@ -340,7 +335,7 @@ export function RedesignPage() {
               </p>
             </div>
           </div>
-          <div className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <div className="flex gap-3 rounded-xl bg-brand-secondary/10 dark:bg-brand-secondary/5 p-4">
             <div className="mt-1 flex p-2 w-fit h-fit items-center justify-center rounded-full bg-brand-primary/15">
               <LayoutTemplate className="text-brand-primary" size={18} />
             </div>
@@ -354,7 +349,7 @@ export function RedesignPage() {
               </p>
             </div>
           </div>
-          <div className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <div className="flex gap-3 rounded-xl bg-brand-secondary/10 dark:bg-brand-secondary/5 p-4">
             <div className="mt-1 flex p-2 w-fit h-fit items-center justify-center rounded-full bg-brand-primary/15">
               <CheckCircle2 className="text-brand-primary" size={18} />
             </div>
@@ -368,7 +363,7 @@ export function RedesignPage() {
               </p>
             </div>
           </div>
-          <div className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <div className="flex gap-3 rounded-xl bg-brand-secondary/10 dark:bg-brand-secondary/5 p-4">
             <div className="mt-1 flex p-2 w-fit h-fit items-center justify-center rounded-full bg-brand-primary/15">
               <Zap className="text-brand-primary" size={18} />
             </div>
@@ -380,7 +375,7 @@ export function RedesignPage() {
               </p>
             </div>
           </div>
-          <div className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <div className="flex gap-3 rounded-xl bg-brand-secondary/10 dark:bg-brand-secondary/5 p-4">
             <div className="mt-1 flex p-2 w-fit h-fit items-center justify-center rounded-full bg-brand-primary/15">
               <Globe2 className="text-brand-primary" size={18} />
             </div>
@@ -395,7 +390,7 @@ export function RedesignPage() {
               </p>
             </div>
           </div>
-          <div className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <div className="flex gap-3 rounded-xl bg-brand-secondary/10 dark:bg-brand-secondary/5 p-4">
             <div className="mt-1 flex p-2 w-fit h-fit items-center justify-center rounded-full bg-brand-primary/15">
               <Code2 className="text-brand-primary" size={18} />
             </div>
@@ -409,7 +404,7 @@ export function RedesignPage() {
               </p>
             </div>
           </div>
-          <div className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <div className="flex gap-3 rounded-xl bg-brand-secondary/10 dark:bg-brand-secondary/5 p-4">
             <div className="mt-1 flex p-2 w-fit h-fit items-center justify-center rounded-full bg-brand-primary/15">
               <Settings className="text-brand-primary" size={18} />
             </div>
@@ -468,13 +463,10 @@ export function RedesignPage() {
 
       <section className="mb-10 rounded-2xl border border-border bg-card/70 p-4 sm:p-5 md:p-8">
         <h2 className="mb-4 flex items-center gap-3 text-2xl font-semibold text-foreground">
-          <AlertTriangle className="h-6 w-6 text-brand-primary" />
+          <AlertTriangle className="h-6 w-6 text-amber-400" />
           Pro koho redesign vhodný není
         </h2>
-        <p className="mb-3 text-brand-text-soft">
-          Redesign není vždy správná odpověď. V některých situacích doporučím
-          spíše úplně nový web:
-        </p>
+
         <div className="grid gap-3 sm:grid-cols-2 text-sm text-brand-text-soft">
           {[
             "Váš byznys model se zásadně změnil a stávající web má zcela jiné zaměření, než potřebujete – v takovém případě nemá smysl stavět na starých základech.",
