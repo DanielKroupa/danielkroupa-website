@@ -38,10 +38,6 @@ export function PrivacyDialog({ onClose }: { onClose: () => void }) {
         <header className="sticky top-0 z-10 border-b border-border bg-card/95 px-5 py-4 backdrop-blur-md sm:px-6">
           <div className="flex items-start justify-between gap-4">
             <div>
-              <p className="inline-flex items-center gap-2 rounded-full border border-border bg-brand-surface px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-text-soft">
-                <ShieldCheck size={14} />
-                Ochrana soukromí
-              </p>
               <h1
                 id="privacy-title"
                 className="mt-3 text-2xl font-bold text-foreground sm:text-3xl"
