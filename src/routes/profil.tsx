@@ -11,7 +11,9 @@ import {
   ChevronDown,
   Code2,
   Cpu,
+  Database,
   Film,
+  Globe,
   Guitar,
   Github,
   Instagram,
@@ -21,6 +23,7 @@ import {
   Mountain,
   Music4,
   Phone,
+  Server,
   Sparkles,
   Wrench,
 } from "lucide-react";
@@ -36,10 +39,10 @@ const HIGHLIGHTS: { title: string; icon: LucideIcon }[] = [
 ];
 
 const TECH_TAGS = [
-  "HTML",
+  "Next.js",
+  "React",
   "TailwindCSS",
   "TypeScript",
-  "Next.js",
   "TanStack Start",
   "Node.js",
   "Docker",
@@ -98,10 +101,9 @@ const SECTIONS: {
       "Node.js",
       "Docker",
       "Git",
-      "REST API",
       "Deployment",
       "VPS konfigurace",
-      "SEO optimalizace",
+      "SEO - optimalizace",
       "Responzivní design",
       "Kontaktní formuláře",
       "Rezervační systémy",
@@ -109,9 +111,10 @@ const SECTIONS: {
       "Auth integrace",
     ],
     tags: [
+      "Next.js",
       "HTML",
       "React",
-      "Next.js",
+
       "GitHub",
       "TanStack Start",
       "TypeScript",
@@ -122,11 +125,10 @@ const SECTIONS: {
       "VPS",
     ],
     levels: [
-      { technology: "HTML", level: "pokročilý" },
+      { technology: "Next.js", level: "Základy" },
       { technology: "TailwindCSS", level: "pokročilý" },
-      { technology: "Next.js", level: "pokročilý" },
-      { technology: "TypeScript", level: "zkušený" },
-      { technology: "TanStack Start", level: "začátečník" },
+      { technology: "TypeScript", level: "Základy" },
+      { technology: "TanStack Start", level: "Základy" },
     ],
   },
   {
@@ -153,52 +155,45 @@ const SECTIONS: {
     title: "IT, hardware a systémy",
     icon: Cpu,
     points: [
-      "Diagnostika problémů",
       "Stavba a upgrade PC",
       "BIOS/UEFI konfigurace",
       "Troubleshooting Windows/macOS/Linux",
       "Konfigurace systému",
-      "Docker",
-      "VPS servery",
       "Instalace Hackintosh",
-      "Práce s hardwarem",
-      "Reinstalace a optimalizace systému",
-      "Opravy zařízení",
       "Práce s technickou dokumentací",
       "Síťové základy",
+      "Konfigurace síťových zařízení",
       "Optimalizace zařízení",
     ],
-    tags: ["Windows", "macOS", "Linux", "Docker", "VPS", "Hardware"],
+    tags: ["Windows", "MacOS", "Linux", "Android"],
   },
   {
     id: "opravy-zarizeni",
-    title: "Opravy zařízení",
+    title: "Opravy zařízení (PC, notebooky, telefony)",
     icon: Wrench,
 
     points: [
       "Čištění zařízení",
       "Výměna a upgrade komponent",
-      "Stavba PC na míru",
-      "Přeinstalace systému",
+      "Přeinstalace a optimalizace systému",
       "Řešení problémů se softwarem",
-      "Optimalizace výkonu zařízení",
-      "Základní servis zařízení",
-      "Diagnostika problémů",
+      "Optimalizace výkonu",
+      "Odvirování zařízení",
+      "Oprava notebooků, PC, telefonů",
     ],
-    tags: ["Servis", "Diagnostika", "Optimalizace"],
+    tags: ["Diagnostika", "Servis", "Optimalizace"],
   },
   {
     id: "kreativita",
-    title: "Kreativita a tvorba obsahu",
+    title: "Grafika a tvorba obsahu",
     icon: Sparkles,
 
     points: [
       "Střih a úprava videa",
-      "Fotografie",
+      "Focení",
       "Amatérské natáčení",
-      "Úprava grafiky / fotky",
+      "Úprava vektorové / rastrové grafiky nebo fotky",
       "Cit pro kompozici",
-      "Kombinace technického a kreativního myšlení",
     ],
     tags: ["Video", "Foto", "Kompozice", "Grafika"],
   },
@@ -212,11 +207,175 @@ const SECTIONS: {
       "Pracuji samostatně",
       "Hledám praktická řešení",
       "Kombinuji technické a kreativní myšlení",
-      "Spolehlivost",
       "Schopnost návrhu řešení",
-      "Schopnost práce s dokumentací",
+      "Práce s dokumentací",
     ],
-    tags: ["Komunikace", "Samostatnost", "Spolehlivost", "Praxe"],
+    tags: ["Samostatnost"],
+  },
+];
+
+type ProjectStatus = "produkce" | "ve-vyvoji" | "archiv" | "doplnit";
+
+type ProjectCaseStudy = {
+  id: string;
+  title: string;
+  role: string;
+  clientType: string;
+  goal: string;
+  status: ProjectStatus;
+  stack: {
+    frontend: string[];
+    backend: string[];
+    devops: string[];
+    database: string[];
+  };
+  processSteps: string[];
+  challenge: string;
+  solution: string;
+  result: string;
+  githubUrl?: string;
+  liveUrl?: string;
+  screenshotPath?: string;
+};
+
+const PROJECT_RESULT_PLACEHOLDER =
+  "Metriky budou doplněny po dokončení měření.";
+
+const PROJECT_STATUS_META: Record<
+  ProjectStatus,
+  { label: string; className: string }
+> = {
+  produkce: {
+    label: "Produkce",
+    className:
+      "border-emerald-500/30 bg-emerald-500/10 text-emerald-300 dark:text-emerald-200",
+  },
+  "ve-vyvoji": {
+    label: "Ve vývoji",
+    className:
+      "border-amber-500/30 bg-amber-500/10 text-amber-300 dark:text-amber-200",
+  },
+  archiv: {
+    label: "Archiv",
+    className:
+      "border-slate-500/30 bg-slate-500/10 text-slate-300 dark:text-slate-200",
+  },
+  doplnit: {
+    label: "Doplnit",
+    className:
+      "border-brand-primary/30 bg-brand-primary/10 text-brand-primary dark:text-brand-primary",
+  },
+};
+
+const PROJECT_STACK_GROUPS: {
+  key: keyof ProjectCaseStudy["stack"];
+  label: string;
+  icon: LucideIcon;
+}[] = [
+  { key: "frontend", label: "Frontend", icon: Code2 },
+  { key: "backend", label: "Backend", icon: Server },
+  { key: "devops", label: "DevOps", icon: Cpu },
+  { key: "database", label: "Databáze", icon: Database },
+];
+
+const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
+  {
+    id: "matrixtricks",
+    title: "MatrixTricks",
+    role: "Full-stack vývoj a technický návrh",
+    clientType: "Vlastní produkt / doplnit",
+    goal: "Doplnit: jaký konkrétní problém projekt řešil a jaký byl hlavní cíl realizace.",
+    status: "doplnit",
+    stack: {
+      frontend: ["TypeScript", "React", "TanStack Start", "TailwindCSS"],
+      backend: ["Node.js", "Doplnit backend vrstvu"],
+      devops: ["Docker", "VPS", "GitHub Actions"],
+      database: ["MySQL", "Doplnit DB schema"],
+    },
+    processSteps: [
+      "Analýza scope, priorit a klíčových use-case scénářů.",
+      "Návrh architektury, komponent a datových toků.",
+      "Implementace frontendu, backend API a navazujících integrací.",
+      "Ladění výkonu, testování a finální nasazení.",
+    ],
+    challenge:
+      "Doplnit: největší technická výzva, která se objevila při implementaci.",
+    solution:
+      "Doplnit: konkrétní postup, jak byla výzva vyřešena technicky i procesně.",
+    result: PROJECT_RESULT_PLACEHOLDER,
+  },
+  {
+    id: "lukas-rihacek",
+    title: "LukášŘiháček.cz",
+    role: "Web development a UX/UI realizace",
+    clientType: "Klientský web / doplnit typ klienta",
+    goal: "Doplnit: cíl webu, cílová skupina a jaký business výsledek měl web podpořit.",
+    status: "doplnit",
+    stack: {
+      frontend: ["Doplnit frontend stack"],
+      backend: ["Doplnit backend stack"],
+      devops: ["Doplnit deployment a infrastrukturu"],
+      database: ["Doplnit databázovou vrstvu"],
+    },
+    processSteps: [
+      "Workshopy a sběr požadavků od klienta.",
+      "Návrh struktury obsahu a wireframů.",
+      "Implementace UI, funkcionalit a validace formulářů.",
+      "Optimalizace rychlosti, SEO a příprava na produkci.",
+    ],
+    challenge:
+      "Doplnit: kde byl technicky nebo UX bottleneck a co to komplikovalo.",
+    solution:
+      "Doplnit: jaká rozhodnutí vedla k funkčnějšímu a stabilnějšímu výsledku.",
+    result: PROJECT_RESULT_PLACEHOLDER,
+  },
+  {
+    id: "boma-kvalitne",
+    title: "boma.kvalitne.cz",
+    role: "Návrh, implementace a technická podpora",
+    clientType: "Klientský web / doplnit typ klienta",
+    goal: "Doplnit: co bylo hlavním zadáním a jaké funkční požadavky bylo nutné splnit.",
+    status: "doplnit",
+    stack: {
+      frontend: ["Doplnit frontend stack"],
+      backend: ["Doplnit backend stack"],
+      devops: ["Doplnit deployment a monitoring"],
+      database: ["Doplnit databázi nebo bez DB"],
+    },
+    processSteps: [
+      "Rozdělení projektu na etapy a prioritizace features.",
+      "Implementace jádra stránky a klíčových interakcí.",
+      "Napojení dat a testování edge-case scénářů.",
+      "Finální optimalizace, QA a předání klientovi.",
+    ],
+    challenge:
+      "Doplnit: konkrétní technická komplikace (např. data, výkon, kompatibilita).",
+    solution: "Doplnit: jak byl navržen a nasazen udržitelný fix.",
+    result: PROJECT_RESULT_PLACEHOLDER,
+  },
+  {
+    id: "zednik-zlin",
+    title: "ZedníkZlín.cz",
+    role: "Frontend + integrace a produkční nasazení",
+    clientType: "Lokální podnikání / doplnit",
+    goal: "Doplnit: jaký cíl měl web plnit z pohledu důvěryhodnosti, poptávek a kontaktu.",
+    status: "doplnit",
+    stack: {
+      frontend: ["Doplnit frontend stack"],
+      backend: ["Doplnit backend/integrace"],
+      devops: ["Doplnit hosting/deployment"],
+      database: ["Doplnit databázovou vrstvu nebo N/A"],
+    },
+    processSteps: [
+      "Sběr podkladů a návrh komunikační struktury stránky.",
+      "Vytvoření design systému a opakovatelných komponent.",
+      "Implementace funkcionalit, formulářů a analytiky.",
+      "Ladění UX detailů a finální publikace projektu.",
+    ],
+    challenge: "Doplnit: jaká část implementace vyžadovala nejvíce iterací.",
+    solution:
+      "Doplnit: co přesně se změnilo, aby vzniklo stabilní a použitelné řešení.",
+    result: PROJECT_RESULT_PLACEHOLDER,
   },
 ];
 
@@ -248,7 +407,12 @@ export const Route = createFileRoute("/profil")({
 });
 
 export function ProfilePage() {
-  const [openId, setOpenId] = useState<string>(SECTIONS[0]?.id ?? "");
+  const [openSectionId, setOpenSectionId] = useState<string>(
+    SECTIONS[0]?.id ?? "",
+  );
+  const [openProjectId, setOpenProjectId] = useState<string>(
+    PROJECT_CASE_STUDIES[0]?.id ?? "",
+  );
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-linear-to-b from-background via-brand-surface/35 to-background pb-20 pt-10 md:pt-14">
@@ -296,7 +460,7 @@ export function ProfilePage() {
                 </p>
               </div>
 
-              <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
                 {HIGHLIGHTS.map((item, i) => {
                   const Icon = item.icon;
                   return (
@@ -392,7 +556,7 @@ export function ProfilePage() {
           <div className="space-y-4">
             {SECTIONS.map((sec, i) => {
               const Icon = sec.icon;
-              const isOpen = openId === sec.id;
+              const isOpen = openSectionId === sec.id;
               return (
                 <motion.div
                   key={sec.id}
@@ -404,7 +568,7 @@ export function ProfilePage() {
                 >
                   <button
                     type="button"
-                    onClick={() => setOpenId(isOpen ? "" : sec.id)}
+                    onClick={() => setOpenSectionId(isOpen ? "" : sec.id)}
                     className="group flex w-full items-center justify-between gap-4 px-4 py-4 text-left transition-colors hover:bg-background/35 sm:px-6 sm:py-5"
                     aria-expanded={isOpen}
                     aria-controls={`panel-${sec.id}`}
@@ -453,7 +617,7 @@ export function ProfilePage() {
                       ) : null}
 
                       {sec.levels ? (
-                        <div className="grid gap-2 rounded-2xl border border-border bg-background/45 p-4 sm:grid-cols-2">
+                        <div className="grid gap-2 rounded-2xl border border-border bg-background/45 p-4 sm:grid-cols-2 md:grid-cols-3">
                           {sec.levels.map((lv) => (
                             <div
                               key={lv.technology}
@@ -470,7 +634,7 @@ export function ProfilePage() {
                         </div>
                       ) : null}
 
-                      <div className="grid gap-2 sm:grid-cols-2">
+                      <div className="grid gap-2 md:grid-cols-2 lg:grid-cols-3">
                         {sec.points.map((pt) => (
                           <div
                             key={`${sec.id}-${pt}`}
@@ -507,6 +671,245 @@ export function ProfilePage() {
                           </p>
                         </motion.div>
                       ) : null}
+                    </div>
+                  </motion.div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </section>
+
+        {/* ── Webove projekty ── */}
+        <section className="rounded-3xl border border-border bg-card/65 p-5 backdrop-blur-sm sm:p-8 md:p-10">
+          <div className="mb-8 space-y-3">
+            <p className="text-xs uppercase tracking-[0.24em] text-brand-secondary">
+              Case studies
+            </p>
+            <h2 className="text-3xl text-foreground md:text-5xl">
+              Webové projekty
+            </h2>
+            <p className="max-w-3xl text-sm leading-relaxed text-brand-text-soft md:text-base">
+              Tato sekce slouží jako jednotná technická šablona pro rozpis
+              projektů. U každé realizace je vidět stack, postup řešení,
+              největší výzva a průběžně doplňované výsledky.
+            </p>
+          </div>
+
+          <div className="space-y-4">
+            {PROJECT_CASE_STUDIES.map((project, i) => {
+              const isOpen = openProjectId === project.id;
+              const statusMeta = PROJECT_STATUS_META[project.status];
+
+              return (
+                <motion.div
+                  key={project.id}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ duration: 0.4, delay: i * 0.04 }}
+                  className="overflow-hidden rounded-2xl border border-border bg-linear-to-br from-brand-surface/65 to-card/85"
+                >
+                  <button
+                    type="button"
+                    onClick={() => setOpenProjectId(isOpen ? "" : project.id)}
+                    className="group flex w-full items-center justify-between gap-4 px-4 py-4 text-left transition-colors hover:bg-background/35 sm:px-6 sm:py-5"
+                    aria-expanded={isOpen}
+                    aria-controls={`project-panel-${project.id}`}
+                  >
+                    <span className="flex items-center gap-3">
+                      <span className="inline-flex rounded-full bg-brand-primary/15 p-2 text-brand-primary transition-colors group-hover:bg-brand-secondary/20 group-hover:text-brand-secondary">
+                        <Code2 size={17} />
+                      </span>
+                      <span>
+                        <span className="block text-lg font-semibold text-foreground sm:text-xl">
+                          {project.title}
+                        </span>
+                        <span className="mt-1 block text-xs uppercase tracking-wide text-brand-secondary">
+                          {project.role}
+                        </span>
+                      </span>
+                    </span>
+                    <span className="flex shrink-0 items-center gap-3">
+                      <span
+                        className={`rounded-full border px-2.5 py-1 text-xs font-medium ${statusMeta.className}`}
+                      >
+                        {statusMeta.label}
+                      </span>
+                      <motion.span
+                        animate={{ rotate: isOpen ? 180 : 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="text-brand-secondary"
+                      >
+                        <ChevronDown size={22} />
+                      </motion.span>
+                    </span>
+                  </button>
+
+                  <motion.div
+                    id={`project-panel-${project.id}`}
+                    initial={false}
+                    animate={{
+                      height: isOpen ? "auto" : 0,
+                      opacity: isOpen ? 1 : 0,
+                    }}
+                    transition={{ duration: 0.28, ease: "easeOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="space-y-5 border-t border-border/80 px-4 py-5 sm:px-6 sm:py-6">
+                      <div className="grid gap-2 sm:grid-cols-3">
+                        <div className="rounded-xl bg-background/40 p-3">
+                          <p className="mb-1 text-xs uppercase tracking-wide text-brand-secondary">
+                            Typ klienta
+                          </p>
+                          <p className="text-sm text-brand-text-soft">
+                            {project.clientType}
+                          </p>
+                        </div>
+                        <div className="rounded-xl bg-background/40 p-3 sm:col-span-2">
+                          <p className="mb-1 text-xs uppercase tracking-wide text-brand-secondary">
+                            Zadání a cíl
+                          </p>
+                          <p className="text-sm text-brand-text-soft">
+                            {project.goal}
+                          </p>
+                        </div>
+                      </div>
+
+                      {project.screenshotPath ? (
+                        <div className="overflow-hidden rounded-2xl border border-border bg-background/45">
+                          <Image
+                            src={project.screenshotPath}
+                            width={1200}
+                            height={700}
+                            alt={`Nahled projektu ${project.title}`}
+                            className="h-auto w-full object-cover"
+                          />
+                        </div>
+                      ) : (
+                        <div className="rounded-2xl border border-dashed border-border/80 bg-background/35 p-4">
+                          <p className="text-sm text-brand-text-soft">
+                            Náhled projektu bude doplněn.
+                          </p>
+                        </div>
+                      )}
+
+                      <div className="grid gap-3 md:grid-cols-2">
+                        {PROJECT_STACK_GROUPS.map((group) => {
+                          const StackIcon = group.icon;
+
+                          return (
+                            <div
+                              key={`${project.id}-${group.key}`}
+                              className="rounded-2xl border border-border bg-background/45 p-4"
+                            >
+                              <p className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground">
+                                <StackIcon
+                                  size={16}
+                                  className="text-brand-primary"
+                                />
+                                {group.label}
+                              </p>
+                              <div className="flex flex-wrap gap-2">
+                                {project.stack[group.key].map((tech) => (
+                                  <span
+                                    key={`${project.id}-${group.key}-${tech}`}
+                                    className="rounded-full border border-brand-primary/30 bg-brand-primary/10 px-3 py-1 text-xs font-medium text-brand-primary"
+                                  >
+                                    {tech}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+
+                      <div className="space-y-3 rounded-2xl border border-border bg-background/45 p-4">
+                        <p className="text-xs uppercase tracking-wide text-brand-secondary">
+                          Postup řešení
+                        </p>
+                        <div className="space-y-2">
+                          {project.processSteps.map((step, stepIndex) => (
+                            <div
+                              key={`${project.id}-step-${step}`}
+                              className="flex items-start gap-3 rounded-xl bg-card/75 px-3 py-2"
+                            >
+                              <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-xs font-semibold text-brand-primary">
+                                {stepIndex + 1}
+                              </span>
+                              <span className="text-sm text-brand-text-soft">
+                                {step}
+                              </span>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="grid gap-3 md:grid-cols-2">
+                        <div className="rounded-2xl border border-border bg-background/45 p-4">
+                          <p className="mb-1 text-xs uppercase tracking-wide text-brand-secondary">
+                            Technická výzva
+                          </p>
+                          <p className="text-sm text-brand-text-soft">
+                            {project.challenge}
+                          </p>
+                        </div>
+                        <div className="rounded-2xl border border-border bg-background/45 p-4">
+                          <p className="mb-1 text-xs uppercase tracking-wide text-brand-secondary">
+                            Řešení
+                          </p>
+                          <p className="text-sm text-brand-text-soft">
+                            {project.solution}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="space-y-4 rounded-2xl border border-brand-primary/20 bg-brand-primary/8 p-4">
+                        <div>
+                          <p className="mb-1 text-xs uppercase tracking-wide text-brand-secondary">
+                            Výsledky
+                          </p>
+                          <p className="text-sm text-brand-text-soft">
+                            {project.result}
+                          </p>
+                        </div>
+
+                        <div className="flex flex-wrap gap-2">
+                          {project.githubUrl ? (
+                            <a
+                              href={project.githubUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card/80 px-3 py-2 text-sm font-medium text-foreground transition-colors hover:border-brand-secondary/45 hover:text-brand-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60"
+                            >
+                              <Github size={16} />
+                              GitHub repozitář
+                            </a>
+                          ) : (
+                            <span className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card/80 px-3 py-2 text-sm text-brand-text-soft">
+                              <Github size={16} />
+                              GitHub URL bude doplněna
+                            </span>
+                          )}
+
+                          {project.liveUrl ? (
+                            <a
+                              href={project.liveUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card/80 px-3 py-2 text-sm font-medium text-foreground transition-colors hover:border-brand-secondary/45 hover:text-brand-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60"
+                            >
+                              <Globe size={16} />
+                              Živé demo
+                            </a>
+                          ) : (
+                            <span className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card/80 px-3 py-2 text-sm text-brand-text-soft">
+                              <Globe size={16} />
+                              Live URL bude doplněna
+                            </span>
+                          )}
+                        </div>
+                      </div>
                     </div>
                   </motion.div>
                 </motion.div>

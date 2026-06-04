@@ -6,6 +6,7 @@ import { AnalyticsGate } from "../components/AnalyticsGate";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import { RootNotFound } from "../components/RootNotFound";
+
 import { CookieConsentProvider } from "../hooks/useCookieConsent";
 import { useHashSectionScroll } from "../hooks/useHashSectionScroll";
 import { PrivacyOverlayLayer } from "../components/PrivacyOverlay";
