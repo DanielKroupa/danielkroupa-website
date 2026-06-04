@@ -1,4 +1,4 @@
-import { ShieldCheck, X } from "lucide-react";
+import { X } from "lucide-react";
 import { useEffect } from "react";
 
 export function PrivacyDialog({ onClose }: { onClose: () => void }) {
