@@ -22,14 +22,15 @@ export function ServiceDetailTemplate({
           </h1>
 
           {children}
-
-          <Link
-            to="/"
-            hash="kontakt"
-            className="mt-8 inline-block rounded-lg bg-brand-primary px-8 py-4 text-primary-foreground transition-all hover:scale-105 hover:bg-brand-primary-strong"
-          >
-            Nezávazně poptat službu
-          </Link>
+          <div className="flex justify-center md:justify-start">
+            <Link
+              to="/"
+              hash="kontakt"
+              className="mt-8 inline-block rounded-lg bg-brand-primary px-8 py-4 text-primary-foreground transition-all hover:scale-105 hover:bg-brand-primary-strong"
+            >
+              Nezávazně poptat službu
+            </Link>
+          </div>
         </section>
       </div>
     </main>
