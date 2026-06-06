@@ -1,5 +1,5 @@
 import { motion } from "motion/react";
-import { BookOpen, Coffee, Smile } from "lucide-react";
+import { Coffee, Smile, ThumbsUp } from "lucide-react";
 
 import { Image } from "@unpic/react";
 
@@ -11,7 +11,7 @@ const values = [
       "Dobrý čaj, čistá hlava a prostor na soustředění dělají zásadní rozdíl.",
   },
   {
-    icon: BookOpen,
+    icon: ThumbsUp,
     title: "Mám rád jednoduchost",
     description:
       "Věci bez zbytečného chaosu mi dávají smysl v práci i běžném dni.",
