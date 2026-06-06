@@ -124,7 +124,7 @@ export function PricingSection() {
                 className={`mt-auto w-full rounded-lg py-3 font-semibold transition-all ${
                   option.popular
                     ? "bg-brand-primary text-primary-foreground cursor-pointer shadow-lg shadow-brand-primary/30 hover:bg-brand-primary-strong"
-                    : "bg-secondary text-secondary-foreground cursor-pointer hover:bg-accent"
+                    : "bg-secondary text-secondary-foreground hover:text-primary-foreground cursor-pointer hover:bg-accent"
                 }`}
               >
                 Poptat projekt
