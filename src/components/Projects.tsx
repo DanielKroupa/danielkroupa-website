@@ -18,7 +18,7 @@ const projects: Project[] = [
     description:
       "Ze starého webu pro firmu BOMA Úklid s.r.o. jsem vytvořil moderní, rychlý a responzivní web s důrazem na uživatelskou přívětivost, který odpovídá moderním potřebám",
     image: "/img/noindex/projects/boma-uklid-preview.webp",
-    tech: ["Redesign", "SEO", "Responzivita", "HTPPS"],
+    tech: ["Redesign", "SEO", "Responzivita", "HTTPS"],
     link: "https://boma.kvalitne.cz",
   },
   {
