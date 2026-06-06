@@ -125,7 +125,7 @@ export function WebDevelopmentPage() {
           nachází a co je zrovna potřeba.
         </p>
         <ol className="space-y-4 text-brand-text-soft">
-          <li className="flex gap-3 rounded-xl bg-background/60 p-2">
+          <li className="flex gap-3 rounded-xl bg-background/60 p-1">
             <div className="mt-1 text-4xl flex p-2 items-start justify-start rounded-full font-semibold text-brand-primary">
               1
             </div>
@@ -138,7 +138,7 @@ export function WebDevelopmentPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-2">
+          <li className="flex gap-3 rounded-xl bg-background/60 p-1">
             <div className="mt-1 text-4xl flex p-2 items-start justify-start rounded-full font-semibold text-brand-primary">
               2
             </div>
@@ -154,7 +154,7 @@ export function WebDevelopmentPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-2">
+          <li className="flex gap-3 rounded-xl bg-background/60 p-1">
             <div className="mt-1 text-4xl flex p-2 items-start justify-start rounded-full font-semibold text-brand-primary">
               3
             </div>
@@ -170,7 +170,7 @@ export function WebDevelopmentPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-2">
+          <li className="flex gap-3 rounded-xl bg-background/60 p-1">
             <div className="mt-1 text-4xl flex p-2 items-start justify-start rounded-full font-semibold text-brand-primary">
               4
             </div>
@@ -184,7 +184,7 @@ export function WebDevelopmentPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-2">
+          <li className="flex gap-3 rounded-xl bg-background/60 p-1">
             <div className="mt-1 text-4xl flex p-2 items-start justify-start rounded-full font-semibold text-brand-primary">
               5
             </div>
@@ -200,7 +200,7 @@ export function WebDevelopmentPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-2">
+          <li className="flex gap-3 rounded-xl bg-background/60 p-1">
             <div className="mt-1 text-4xl flex p-2 items-start justify-start rounded-full font-semibold text-brand-primary">
               6
             </div>
@@ -214,7 +214,7 @@ export function WebDevelopmentPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-2">
+          <li className="flex gap-3 rounded-xl bg-background/60 p-1">
             <div className="mt-1 text-4xl flex p-2 items-start justify-start rounded-full font-semibold text-brand-primary">
               7
             </div>
