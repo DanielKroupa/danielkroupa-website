@@ -66,7 +66,7 @@ export function useTheme() {
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {
-      // localStorage unavailable
+      console.log("Unable to save theme preference");
     }
     setTheme(next);
     // DOM update is handled by useIsomorphicLayoutEffect above
