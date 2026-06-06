@@ -84,7 +84,7 @@ export function SeoImprovementsPage() {
           ].map(({ icon, text }) => (
             <div
               key={text}
-              className="flex items-start gap-3 rounded-xl bg-background/60 p-4"
+              className="flex items-start gap-3 rounded-xl bg-background/60 md:p-4 p-2"
             >
               <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-primary/15">
                 {icon}
@@ -101,7 +101,7 @@ export function SeoImprovementsPage() {
         </h2>
 
         <ol className="space-y-4 text-brand-text-soft">
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-2">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold text-brand-primary">
               1
             </div>
@@ -114,7 +114,7 @@ export function SeoImprovementsPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-2">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold text-brand-primary">
               2
             </div>
@@ -127,7 +127,7 @@ export function SeoImprovementsPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-2">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold text-brand-primary">
               3
             </div>
@@ -140,7 +140,7 @@ export function SeoImprovementsPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-2">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold text-brand-primary">
               4
             </div>
@@ -155,7 +155,7 @@ export function SeoImprovementsPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-2">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold text-brand-primary">
               5
             </div>
@@ -218,7 +218,7 @@ export function SeoImprovementsPage() {
           ].map(({ icon, title, desc }) => (
             <div
               key={title}
-              className="flex gap-3 rounded-xl bg-background/60 p-4"
+              className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-2"
             >
               <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15">
                 {icon}

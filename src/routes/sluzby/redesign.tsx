@@ -97,7 +97,7 @@ export function RedesignPage() {
           ].map(({ icon, text }) => (
             <div
               key={text}
-              className="flex items-start gap-3 rounded-xl bg-background/60 p-4"
+              className="flex items-start gap-3 rounded-xl bg-background/60 md:p-4 p-1"
             >
               <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-400/15">
                 {icon}
@@ -114,7 +114,7 @@ export function RedesignPage() {
         </h2>
         <div className="grid gap-4 md:grid-cols-2">
           <div className="flex gap-3 rounded-xl bg-brand-primary/5 p-4">
-            <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-brand-primary/15">
+            <div className="mt-1 flex h-9 w-9 justify-center rounded-full">
               <Search className="text-brand-primary" size={18} />
             </div>
             <div>
@@ -129,7 +129,7 @@ export function RedesignPage() {
             </div>
           </div>
           <div className="flex gap-3 rounded-xl bg-brand-secondary/5 p-4">
-            <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-brand-secondary/15">
+            <div className="mt-1 flex h-9 w-9 justify-center rounded-full">
               <Users className="text-brand-secondary" size={18} />
             </div>
             <div>
@@ -144,7 +144,7 @@ export function RedesignPage() {
             </div>
           </div>
           <div className="flex gap-3 rounded-xl bg-brand-primary/5 p-4">
-            <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-brand-primary/15">
+            <div className="mt-1 flex h-9 w-9 justify-center rounded-full">
               <RefreshCw className="text-brand-primary" size={18} />
             </div>
             <div>
@@ -159,7 +159,7 @@ export function RedesignPage() {
             </div>
           </div>
           <div className="flex gap-3 rounded-xl bg-brand-secondary/5 p-4">
-            <div className="mt-1 flex h-9 w-9 items-center justify-center rounded-full bg-brand-secondary/15">
+            <div className="mt-1 flex h-9 w-9 justify-center rounded-full">
               <CheckCircle2 className="text-brand-secondary" size={18} />
             </div>
             <div>
@@ -182,7 +182,7 @@ export function RedesignPage() {
         </h2>
 
         <ol className="space-y-4 text-brand-text-soft">
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-1.5">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold leading-none text-brand-primary">
               1
             </div>
@@ -198,7 +198,7 @@ export function RedesignPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-1.5">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold leading-none text-brand-primary">
               2
             </div>
@@ -213,7 +213,7 @@ export function RedesignPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-1.5">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold leading-none text-brand-primary">
               3
             </div>
@@ -228,7 +228,7 @@ export function RedesignPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-1.5">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold leading-none text-brand-primary">
               4
             </div>
@@ -242,7 +242,7 @@ export function RedesignPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-1.5">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold leading-none text-brand-primary">
               5
             </div>
@@ -255,7 +255,7 @@ export function RedesignPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-1.5">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold leading-none text-brand-primary">
               6
             </div>
@@ -270,7 +270,7 @@ export function RedesignPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-1.5">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold leading-none text-brand-primary">
               7
             </div>
@@ -285,7 +285,7 @@ export function RedesignPage() {
               </p>
             </div>
           </li>
-          <li className="flex gap-3 rounded-xl bg-background/60 p-4">
+          <li className="flex gap-3 rounded-xl bg-background/60 md:p-4 p-1.5">
             <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-primary/15 text-sm font-semibold leading-none text-brand-primary">
               8
             </div>
@@ -428,7 +428,7 @@ export function RedesignPage() {
         </h2>
 
         <div className="grid gap-4 md:grid-cols-2 text-brand-text-soft  mb-3">
-          <div className="rounded-xl bg-background/60 p-4">
+          <div className="rounded-xl bg-background/60 md:p-4 p-2">
             <p className="mb-1 font-semibold text-foreground">
               Firma nebo živnostník se starším webem
             </p>
@@ -440,20 +440,19 @@ export function RedesignPage() {
               ideální volba.
             </p>
           </div>
-          <div className="rounded-xl bg-background/60 p-4">
+          <div className="rounded-xl bg-background/60 md:p-4 p-2">
             <p className="mb-1 font-semibold text-foreground">
               Přechod ze šablony na profesionální web
             </p>
             <p className="text-sm">
-              Začínali jste s Wixem, WordPress šablonou nebo jinou
-              jednoduchoškoumou platformou – a to bylo správné rozhodnutí. Teď
-              ale vaše podnikání přerostlo možnosti šablony a potřebujete web,
-              který odráží skutečnou úroveň vaší práce a dokáže efektivně
-              přivádět klienty.
+              Začínali jste s Wixem, WordPress šablonou nebo jinou platformou –
+              a to bylo správné rozhodnutí. Teď ale vaše podnikání přerostlo
+              možnosti šablony a potřebujete web, který odráží skutečnou úroveň
+              vaší práce a dokáže efektivně přivádět klienty.
             </p>
           </div>
         </div>
-        <p className="text-brand-text-soft">
+        <p className="text-brand-text-soft md:text-left">
           Pokud se v jedné z těchto situací poznáváte, redesign bude
           pravděpodobně tím, co váš online výsledek posune vpřed.
         </p>
@@ -474,7 +473,7 @@ export function RedesignPage() {
           ].map((text) => (
             <div
               key={text}
-              className="flex items-start gap-3 rounded-xl bg-background/60 p-4"
+              className="flex items-start gap-3 rounded-xl bg-background/60 md:p-4 p-0 py-2"
             >
               <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-primary/15">
                 <ArrowRight size={13} className="text-brand-primary" />
