@@ -11,23 +11,23 @@ import {
   ChevronDown,
   Code2,
   Cpu,
-  Database,
   Film,
   Globe,
   Guitar,
-  Github,
-  Instagram,
   Leaf,
   Mail,
   MessageCircle,
   Mountain,
   Music4,
   Phone,
-  Server,
   Sparkles,
   Wrench,
 } from "lucide-react";
+
+import { FaInstagram, FaGithub } from "react-icons/fa";
+
 import type { LucideIcon } from "lucide-react";
+import type { IconType } from "react-icons";
 import { createSeoHead } from "#/lib/seo/meta";
 import { Image } from "@unpic/react";
 
@@ -38,34 +38,22 @@ const HIGHLIGHTS: { title: string; icon: LucideIcon }[] = [
   { title: "Technické řešení problémů", icon: Wrench },
 ];
 
-const TECH_TAGS = [
-  "Next.js",
-  "React",
-  "TailwindCSS",
-  "TypeScript",
-  "TanStack Start",
-  "Node.js",
-  "Docker",
-  "Git",
-  "MySQL",
-];
-
 const HERO_CONTACT_LINKS: {
   label: string;
   href: string;
-  icon: LucideIcon;
+  icon: LucideIcon | IconType;
   external?: boolean;
 }[] = [
   {
     label: "GitHub",
     href: "https://github.com/danielkroupa",
-    icon: Github,
+    icon: FaGithub,
     external: true,
   },
   {
     label: "Instagram",
     href: "https://instagram.com/username",
-    icon: Instagram,
+    icon: FaInstagram,
     external: true,
   },
   {
@@ -112,9 +100,8 @@ const SECTIONS: {
     ],
     tags: [
       "Next.js",
-      "HTML",
       "React",
-
+      "HTML",
       "GitHub",
       "TanStack Start",
       "TypeScript",
@@ -122,7 +109,6 @@ const SECTIONS: {
       "Node.js",
       "Docker",
       "SEO",
-      "VPS",
     ],
     levels: [
       { technology: "Next.js", level: "Základy" },
@@ -136,19 +122,16 @@ const SECTIONS: {
     title: "UX/UI Design",
     icon: Brush,
     points: [
-      "Návrhy moderních rozhraní",
-      "Důraz na jednoduchost a použitelnost",
       "Wireframy",
+      "Důraz na jednoduchost a použitelnost",
       "Responzivní design",
-      "Dark/light mode",
+      "Tmavý / Světlý motiv",
       "Animace UI",
       "User flow",
       "Cit pro vizuální čistotu",
       "Moderní layouty",
-      "UX přemýšlení",
-      "Práce s detailem",
     ],
-    tags: ["UX", "UI", "Wireframe", "Dark/Light", "User Flow"],
+    tags: ["UX", "UI", "Wireframe", "User Flow"],
   },
   {
     id: "it-hardware",
@@ -161,7 +144,6 @@ const SECTIONS: {
       "Konfigurace systému",
       "Instalace Hackintosh",
       "Práce s technickou dokumentací",
-      "Síťové základy",
       "Konfigurace síťových zařízení",
       "Optimalizace zařízení",
     ],
@@ -207,14 +189,13 @@ const SECTIONS: {
       "Pracuji samostatně",
       "Hledám praktická řešení",
       "Kombinuji technické a kreativní myšlení",
-      "Schopnost návrhu řešení",
       "Práce s dokumentací",
     ],
     tags: ["Samostatnost"],
   },
 ];
 
-type ProjectStatus = "produkce" | "ve-vyvoji" | "archiv" | "doplnit";
+type ProjectStatus = "Pozastaveno" | "Aktivní" | "Dokončeno";
 
 type ProjectCaseStudy = {
   id: string;
@@ -223,75 +204,44 @@ type ProjectCaseStudy = {
   clientType: string;
   goal: string;
   status: ProjectStatus;
-  stack: {
-    frontend: string[];
-    backend: string[];
-    devops: string[];
-    database: string[];
-  };
   processSteps: string[];
   challenge: string;
   solution: string;
-  result: string;
   githubUrl?: string;
   liveUrl?: string;
   screenshotPath?: string;
 };
 
-const PROJECT_RESULT_PLACEHOLDER =
-  "Metriky budou doplněny po dokončení měření.";
-
 const PROJECT_STATUS_META: Record<
   ProjectStatus,
   { label: string; className: string }
 > = {
-  produkce: {
-    label: "Produkce",
+  Dokončeno: {
+    label: "Dokončeno",
     className:
       "border-emerald-500/30 bg-emerald-500/10 text-emerald-300 dark:text-emerald-200",
   },
-  "ve-vyvoji": {
-    label: "Ve vývoji",
+  Aktivní: {
+    label: "Aktivní",
     className:
       "border-amber-500/30 bg-amber-500/10 text-amber-300 dark:text-amber-200",
   },
-  archiv: {
-    label: "Archiv",
+  Pozastaveno: {
+    label: "Pozastaveno",
     className:
       "border-slate-500/30 bg-slate-500/10 text-slate-300 dark:text-slate-200",
   },
-  doplnit: {
-    label: "Doplnit",
-    className:
-      "border-brand-primary/30 bg-brand-primary/10 text-brand-primary dark:text-brand-primary",
-  },
 };
-
-const PROJECT_STACK_GROUPS: {
-  key: keyof ProjectCaseStudy["stack"];
-  label: string;
-  icon: LucideIcon;
-}[] = [
-  { key: "frontend", label: "Frontend", icon: Code2 },
-  { key: "backend", label: "Backend", icon: Server },
-  { key: "devops", label: "DevOps", icon: Cpu },
-  { key: "database", label: "Databáze", icon: Database },
-];
 
 const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
   {
     id: "matrixtricks",
     title: "MatrixTricks",
-    role: "Full-stack vývoj a technický návrh",
-    clientType: "Vlastní produkt / doplnit",
-    goal: "Doplnit: jaký konkrétní problém projekt řešil a jaký byl hlavní cíl realizace.",
-    status: "doplnit",
-    stack: {
-      frontend: ["TypeScript", "React", "TanStack Start", "TailwindCSS"],
-      backend: ["Node.js", "Doplnit backend vrstvu"],
-      devops: ["Docker", "VPS", "GitHub Actions"],
-      database: ["MySQL", "Doplnit DB schema"],
-    },
+    role: "Basketbalový portál",
+    clientType: "Portál na míru",
+    goal: "Tento projekt měl za cíl vyřešit problém s nedostatkem posunu prezentace v rámci basketbalu na sociálních sítích a přivést tak uživatelům necenzurovaný a VIP obsah.",
+    status: "Pozastaveno",
+
     processSteps: [
       "Analýza scope, priorit a klíčových use-case scénářů.",
       "Návrh architektury, komponent a datových toků.",
@@ -299,10 +249,11 @@ const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Ladění výkonu, testování a finální nasazení.",
     ],
     challenge:
-      "Doplnit: největší technická výzva, která se objevila při implementaci.",
+      "Nasadit plně funkční platby přes Stripe a umožnit tak klientovi vkládat VIP obsah s přístupem pro předplatitele.",
     solution:
       "Doplnit: konkrétní postup, jak byla výzva vyřešena technicky i procesně.",
-    result: PROJECT_RESULT_PLACEHOLDER,
+    githubUrl: "https://github.com/DanielKroupa/matrixtricks",
+    liveUrl: "https://matrixtricks.vercel.app/",
   },
   {
     id: "lukas-rihacek",
@@ -310,13 +261,8 @@ const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     role: "Web development a UX/UI realizace",
     clientType: "Klientský web / doplnit typ klienta",
     goal: "Doplnit: cíl webu, cílová skupina a jaký business výsledek měl web podpořit.",
-    status: "doplnit",
-    stack: {
-      frontend: ["Doplnit frontend stack"],
-      backend: ["Doplnit backend stack"],
-      devops: ["Doplnit deployment a infrastrukturu"],
-      database: ["Doplnit databázovou vrstvu"],
-    },
+    status: "Pozastaveno",
+
     processSteps: [
       "Workshopy a sběr požadavků od klienta.",
       "Návrh struktury obsahu a wireframů.",
@@ -327,7 +273,6 @@ const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
       "Doplnit: kde byl technicky nebo UX bottleneck a co to komplikovalo.",
     solution:
       "Doplnit: jaká rozhodnutí vedla k funkčnějšímu a stabilnějšímu výsledku.",
-    result: PROJECT_RESULT_PLACEHOLDER,
   },
   {
     id: "boma-kvalitne",
@@ -335,13 +280,7 @@ const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     role: "Návrh, implementace a technická podpora",
     clientType: "Klientský web / doplnit typ klienta",
     goal: "Doplnit: co bylo hlavním zadáním a jaké funkční požadavky bylo nutné splnit.",
-    status: "doplnit",
-    stack: {
-      frontend: ["Doplnit frontend stack"],
-      backend: ["Doplnit backend stack"],
-      devops: ["Doplnit deployment a monitoring"],
-      database: ["Doplnit databázi nebo bez DB"],
-    },
+    status: "Dokončeno",
     processSteps: [
       "Rozdělení projektu na etapy a prioritizace features.",
       "Implementace jádra stránky a klíčových interakcí.",
@@ -351,7 +290,6 @@ const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     challenge:
       "Doplnit: konkrétní technická komplikace (např. data, výkon, kompatibilita).",
     solution: "Doplnit: jak byl navržen a nasazen udržitelný fix.",
-    result: PROJECT_RESULT_PLACEHOLDER,
   },
   {
     id: "zednik-zlin",
@@ -359,13 +297,7 @@ const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     role: "Frontend + integrace a produkční nasazení",
     clientType: "Lokální podnikání / doplnit",
     goal: "Doplnit: jaký cíl měl web plnit z pohledu důvěryhodnosti, poptávek a kontaktu.",
-    status: "doplnit",
-    stack: {
-      frontend: ["Doplnit frontend stack"],
-      backend: ["Doplnit backend/integrace"],
-      devops: ["Doplnit hosting/deployment"],
-      database: ["Doplnit databázovou vrstvu nebo N/A"],
-    },
+    status: "Dokončeno",
     processSteps: [
       "Sběr podkladů a návrh komunikační struktury stránky.",
       "Vytvoření design systému a opakovatelných komponent.",
@@ -375,7 +307,6 @@ const PROJECT_CASE_STUDIES: ProjectCaseStudy[] = [
     challenge: "Doplnit: jaká část implementace vyžadovala nejvíce iterací.",
     solution:
       "Doplnit: co přesně se změnilo, aby vzniklo stabilní a použitelné řešení.",
-    result: PROJECT_RESULT_PLACEHOLDER,
   },
 ];
 
@@ -406,7 +337,7 @@ export const Route = createFileRoute("/profil")({
   component: ProfilePage,
 });
 
-export function ProfilePage() {
+function ProfilePage() {
   const [openSectionId, setOpenSectionId] = useState<string>(
     SECTIONS[0]?.id ?? "",
   );
@@ -481,20 +412,6 @@ export function ProfilePage() {
                     </motion.div>
                   );
                 })}
-              </div>
-              <div>
-                <p>Můj stack se kterým pracuji nejčastěji:</p>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                {TECH_TAGS.map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded-full bg-brand-primary/15 px-3 py-1.5 text-xs font-medium text-brand-primary"
-                  >
-                    {tag}
-                  </span>
-                ))}
               </div>
             </motion.div>
 
@@ -793,37 +710,6 @@ export function ProfilePage() {
                         </div>
                       )}
 
-                      <div className="grid gap-3 md:grid-cols-2">
-                        {PROJECT_STACK_GROUPS.map((group) => {
-                          const StackIcon = group.icon;
-
-                          return (
-                            <div
-                              key={`${project.id}-${group.key}`}
-                              className="rounded-2xl border border-border bg-background/45 p-4"
-                            >
-                              <p className="mb-2 flex items-center gap-2 text-sm font-medium text-foreground">
-                                <StackIcon
-                                  size={16}
-                                  className="text-brand-primary"
-                                />
-                                {group.label}
-                              </p>
-                              <div className="flex flex-wrap gap-2">
-                                {project.stack[group.key].map((tech) => (
-                                  <span
-                                    key={`${project.id}-${group.key}-${tech}`}
-                                    className="rounded-full border border-brand-primary/30 bg-brand-primary/10 px-3 py-1 text-xs font-medium text-brand-primary"
-                                  >
-                                    {tech}
-                                  </span>
-                                ))}
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-
                       <div className="space-y-3 rounded-2xl border border-border bg-background/45 p-4">
                         <p className="text-xs uppercase tracking-wide text-brand-secondary">
                           Postup řešení
@@ -865,15 +751,6 @@ export function ProfilePage() {
                       </div>
 
                       <div className="space-y-4 rounded-2xl border border-brand-primary/20 bg-brand-primary/8 p-4">
-                        <div>
-                          <p className="mb-1 text-xs uppercase tracking-wide text-brand-secondary">
-                            Výsledky
-                          </p>
-                          <p className="text-sm text-brand-text-soft">
-                            {project.result}
-                          </p>
-                        </div>
-
                         <div className="flex flex-wrap gap-2">
                           {project.githubUrl ? (
                             <a
@@ -882,12 +759,12 @@ export function ProfilePage() {
                               rel="noopener noreferrer"
                               className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card/80 px-3 py-2 text-sm font-medium text-foreground transition-colors hover:border-brand-secondary/45 hover:text-brand-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-secondary/60"
                             >
-                              <Github size={16} />
+                              <FaGithub size={16} />
                               GitHub repozitář
                             </a>
                           ) : (
                             <span className="inline-flex items-center gap-2 rounded-xl border border-border/80 bg-card/80 px-3 py-2 text-sm text-brand-text-soft">
-                              <Github size={16} />
+                              <FaGithub size={16} />
                               GitHub URL bude doplněna
                             </span>
                           )}

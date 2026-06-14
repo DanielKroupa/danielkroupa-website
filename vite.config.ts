@@ -12,12 +12,6 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
-  plugins: [
-    devtools(),
-    tailwindcss(),
-    tanstackStart(),
-    viteReact(),
-    nitro(),
-  ],
+  plugins: [devtools(), tailwindcss(), tanstackStart(), viteReact(), nitro()],
   assetsInclude: ["**/*.svg", "**/*.csv"],
 });
