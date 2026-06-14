@@ -16,3 +16,4 @@ todos.json
 .vercel
 
 .vercel
+.env*.local
