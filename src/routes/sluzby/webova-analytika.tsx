@@ -26,7 +26,7 @@ export const Route = createFileRoute("/sluzby/webova-analytika")({
     }),
 });
 
-export function WebAnalyticsPage() {
+function WebAnalyticsPage() {
   const service = SERVICE_BY_ROUTE["/sluzby/webova-analytika"];
 
   return (

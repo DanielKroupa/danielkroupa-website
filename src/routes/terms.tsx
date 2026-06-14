@@ -14,7 +14,7 @@ export const Route = createFileRoute("/terms")({
   component: TermsPage,
 });
 
-export function TermsPage() {
+function TermsPage() {
   return (
     <main className="relative min-h-screen overflow-hidden bg-background pt-32 pb-24">
       <div className="pointer-events-none absolute inset-0 bg-linear-to-br from-background via-brand-surface to-background" />

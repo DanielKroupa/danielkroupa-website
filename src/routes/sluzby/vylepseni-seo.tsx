@@ -27,7 +27,7 @@ export const Route = createFileRoute("/sluzby/vylepseni-seo")({
     }),
 });
 
-export function SeoImprovementsPage() {
+function SeoImprovementsPage() {
   const service = SERVICE_BY_ROUTE["/sluzby/vylepseni-seo"];
 
   return (

@@ -26,7 +26,7 @@ export const Route = createFileRoute("/sluzby/optimalizace-webu")({
     }),
 });
 
-export function WebsiteOptimizationPage() {
+function WebsiteOptimizationPage() {
   const service = SERVICE_BY_ROUTE["/sluzby/optimalizace-webu"];
 
   return (

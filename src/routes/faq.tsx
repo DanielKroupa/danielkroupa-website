@@ -66,7 +66,7 @@ const faqs = [
   },
 ];
 
-export function FAQPage() {
+function FAQPage() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (

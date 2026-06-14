@@ -31,7 +31,7 @@ export const Route = createFileRoute("/sluzby/redesign")({
     }),
 });
 
-export function RedesignPage() {
+function RedesignPage() {
   const service = SERVICE_BY_ROUTE["/sluzby/redesign"];
 
   return (

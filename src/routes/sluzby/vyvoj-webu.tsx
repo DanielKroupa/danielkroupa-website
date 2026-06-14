@@ -25,7 +25,7 @@ export const Route = createFileRoute("/sluzby/vyvoj-webu")({
   component: WebDevelopmentPage,
 });
 
-export function WebDevelopmentPage() {
+function WebDevelopmentPage() {
   const service = SERVICE_BY_ROUTE["/sluzby/vyvoj-webu"];
 
   return (
