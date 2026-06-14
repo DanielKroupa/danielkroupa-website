@@ -133,7 +133,7 @@ export async function sendContactEmails(params: {
 }
 
 export const sendContactInquiry = createServerFn({ method: "POST" })
-  .inputValidator(contactFormSchema)
+  .validator(contactFormSchema)
   .handler(async ({ data }): Promise<SendContactInquiryResult> => {
     try {
       const resend = getResendClient();
